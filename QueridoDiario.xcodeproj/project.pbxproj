@@ -15,6 +15,12 @@
 		347A3BE02D2D9E5C004243CE /* QueridoDiarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BDF2D2D9E5C004243CE /* QueridoDiarioTests.swift */; };
 		347A3BEA2D2D9E5C004243CE /* QueridoDiarioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BE92D2D9E5C004243CE /* QueridoDiarioUITests.swift */; };
 		347A3BEC2D2D9E5C004243CE /* QueridoDiarioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BEB2D2D9E5C004243CE /* QueridoDiarioUITestsLaunchTests.swift */; };
+		34FC5EB92D302BAE00048049 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FC5EB82D302BAE00048049 /* ViewModel.swift */; };
+		34FC5EBB2D302C9300048049 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FC5EBA2D302C9300048049 /* PasswordView.swift */; };
+		34FC5EBD2D302E1200048049 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FC5EBC2D302E1200048049 /* HomeView.swift */; };
+		34FC5EBF2D302E4300048049 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FC5EBE2D302E4300048049 /* CalendarView.swift */; };
+		34FC5EC12D302E7500048049 /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FC5EC02D302E7500048049 /* DiaryView.swift */; };
+		34FC5EC32D302EA400048049 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FC5EC22D302EA400048049 /* StatisticsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +52,12 @@
 		347A3BE52D2D9E5C004243CE /* QueridoDiarioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QueridoDiarioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		347A3BE92D2D9E5C004243CE /* QueridoDiarioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueridoDiarioUITests.swift; sourceTree = "<group>"; };
 		347A3BEB2D2D9E5C004243CE /* QueridoDiarioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueridoDiarioUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		34FC5EB82D302BAE00048049 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		34FC5EBA2D302C9300048049 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
+		34FC5EBC2D302E1200048049 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		34FC5EBE2D302E4300048049 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		34FC5EC02D302E7500048049 /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
+		34FC5EC22D302EA400048049 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,9 +108,10 @@
 		347A3BCB2D2D9E5B004243CE /* QueridoDiario */ = {
 			isa = PBXGroup;
 			children = (
+				34FC5EB72D302B8400048049 /* ViewModels */,
+				34FC5EB62D302B7E00048049 /* Models */,
+				34FC5EB52D302ADD00048049 /* Views */,
 				347A3BCC2D2D9E5B004243CE /* QueridoDiarioApp.swift */,
-				347A3BCE2D2D9E5B004243CE /* ContentView.swift */,
-				347A3BD02D2D9E5B004243CE /* Item.swift */,
 				347A3BD22D2D9E5C004243CE /* Assets.xcassets */,
 				347A3BD42D2D9E5C004243CE /* Preview Content */,
 			);
@@ -128,6 +141,35 @@
 				347A3BEB2D2D9E5C004243CE /* QueridoDiarioUITestsLaunchTests.swift */,
 			);
 			path = QueridoDiarioUITests;
+			sourceTree = "<group>";
+		};
+		34FC5EB52D302ADD00048049 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				347A3BCE2D2D9E5B004243CE /* ContentView.swift */,
+				34FC5EBA2D302C9300048049 /* PasswordView.swift */,
+				34FC5EBC2D302E1200048049 /* HomeView.swift */,
+				34FC5EBE2D302E4300048049 /* CalendarView.swift */,
+				34FC5EC02D302E7500048049 /* DiaryView.swift */,
+				34FC5EC22D302EA400048049 /* StatisticsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		34FC5EB62D302B7E00048049 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				347A3BD02D2D9E5B004243CE /* Item.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		34FC5EB72D302B8400048049 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				34FC5EB82D302BAE00048049 /* ViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,8 +302,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34FC5EBB2D302C9300048049 /* PasswordView.swift in Sources */,
+				34FC5EBF2D302E4300048049 /* CalendarView.swift in Sources */,
 				347A3BCF2D2D9E5B004243CE /* ContentView.swift in Sources */,
 				347A3BD12D2D9E5B004243CE /* Item.swift in Sources */,
+				34FC5EC32D302EA400048049 /* StatisticsView.swift in Sources */,
+				34FC5EBD2D302E1200048049 /* HomeView.swift in Sources */,
+				34FC5EB92D302BAE00048049 /* ViewModel.swift in Sources */,
+				34FC5EC12D302E7500048049 /* DiaryView.swift in Sources */,
 				347A3BCD2D2D9E5B004243CE /* QueridoDiarioApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
