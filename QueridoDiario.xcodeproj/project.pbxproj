@@ -111,9 +111,8 @@
 				34FC5EB72D302B8400048049 /* ViewModels */,
 				34FC5EB62D302B7E00048049 /* Models */,
 				34FC5EB52D302ADD00048049 /* Views */,
+				34FC5EC42D31882600048049 /* Resources */,
 				347A3BCC2D2D9E5B004243CE /* QueridoDiarioApp.swift */,
-				347A3BD22D2D9E5C004243CE /* Assets.xcassets */,
-				347A3BD42D2D9E5C004243CE /* Preview Content */,
 			);
 			path = QueridoDiario;
 			sourceTree = "<group>";
@@ -170,6 +169,15 @@
 				34FC5EB82D302BAE00048049 /* ViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		34FC5EC42D31882600048049 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				347A3BD22D2D9E5C004243CE /* Assets.xcassets */,
+				347A3BD42D2D9E5C004243CE /* Preview Content */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,7 +481,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"QueridoDiario/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"QueridoDiario/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = MT4A7M75NC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -502,7 +510,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"QueridoDiario/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"QueridoDiario/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = MT4A7M75NC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
