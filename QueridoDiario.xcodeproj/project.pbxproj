@@ -15,6 +15,7 @@
 		0BB60E542DA4483500ACA7E8 /* BricolageGrotesque-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E532DA4483500ACA7E8 /* BricolageGrotesque-SemiBold.ttf */; };
 		0BB60E562DA4484D00ACA7E8 /* BricolageGrotesque-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E552DA4484D00ACA7E8 /* BricolageGrotesque-Regular.ttf */; };
 		0BB60E582DA4485400ACA7E8 /* BricolageGrotesque-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E572DA4485400ACA7E8 /* BricolageGrotesque-ExtraBold.ttf */; };
+		0BB60E5A2DA450C400ACA7E8 /* DiaryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB60E592DA450BE00ACA7E8 /* DiaryPage.swift */; };
 		347A3BCD2D2D9E5B004243CE /* QueridoDiarioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BCC2D2D9E5B004243CE /* QueridoDiarioApp.swift */; };
 		347A3BCF2D2D9E5B004243CE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BCE2D2D9E5B004243CE /* ContentView.swift */; };
 		347A3BD12D2D9E5B004243CE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BD02D2D9E5B004243CE /* Item.swift */; };
@@ -58,6 +59,7 @@
 		0BB60E532DA4483500ACA7E8 /* BricolageGrotesque-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BricolageGrotesque-SemiBold.ttf"; sourceTree = "<group>"; };
 		0BB60E552DA4484D00ACA7E8 /* BricolageGrotesque-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BricolageGrotesque-Regular.ttf"; sourceTree = "<group>"; };
 		0BB60E572DA4485400ACA7E8 /* BricolageGrotesque-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BricolageGrotesque-ExtraBold.ttf"; sourceTree = "<group>"; };
+		0BB60E592DA450BE00ACA7E8 /* DiaryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPage.swift; sourceTree = "<group>"; };
 		347A3BC92D2D9E5B004243CE /* QueridoDiario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QueridoDiario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		347A3BCC2D2D9E5B004243CE /* QueridoDiarioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueridoDiarioApp.swift; sourceTree = "<group>"; };
 		347A3BCE2D2D9E5B004243CE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		34FC5EB62D302B7E00048049 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0BB60E592DA450BE00ACA7E8 /* DiaryPage.swift */,
 				347A3BD02D2D9E5B004243CE /* Item.swift */,
 			);
 			path = Models;
@@ -360,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BB60E5A2DA450C400ACA7E8 /* DiaryPage.swift in Sources */,
 				34FC5EBB2D302C9300048049 /* PasswordView.swift in Sources */,
 				34FC5EBF2D302E4300048049 /* CalendarView.swift in Sources */,
 				347A3BCF2D2D9E5B004243CE /* ContentView.swift in Sources */,
