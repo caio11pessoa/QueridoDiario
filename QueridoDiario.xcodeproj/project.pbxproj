@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BB60E162DA43B2100ACA7E8 /* My Lock - Animations(3).json in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E142DA43B2100ACA7E8 /* My Lock - Animations(3).json */; };
+		0BB60E172DA43B2100ACA7E8 /* My Lock - Animations(4).json in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E152DA43B2100ACA7E8 /* My Lock - Animations(4).json */; };
+		0BB60E182DA43B2100ACA7E8 /* My Lock - Animations(2).json in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E132DA43B2100ACA7E8 /* My Lock - Animations(2).json */; };
+		0BB60E192DA43B2100ACA7E8 /* My Lock - Animations(1).json in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E122DA43B2100ACA7E8 /* My Lock - Animations(1).json */; };
 		347A3BCD2D2D9E5B004243CE /* QueridoDiarioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BCC2D2D9E5B004243CE /* QueridoDiarioApp.swift */; };
 		347A3BCF2D2D9E5B004243CE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BCE2D2D9E5B004243CE /* ContentView.swift */; };
 		347A3BD12D2D9E5B004243CE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BD02D2D9E5B004243CE /* Item.swift */; };
@@ -41,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0BB60E122DA43B2100ACA7E8 /* My Lock - Animations(1).json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "My Lock - Animations(1).json"; sourceTree = "<group>"; };
+		0BB60E132DA43B2100ACA7E8 /* My Lock - Animations(2).json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "My Lock - Animations(2).json"; sourceTree = "<group>"; };
+		0BB60E142DA43B2100ACA7E8 /* My Lock - Animations(3).json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "My Lock - Animations(3).json"; sourceTree = "<group>"; };
+		0BB60E152DA43B2100ACA7E8 /* My Lock - Animations(4).json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "My Lock - Animations(4).json"; sourceTree = "<group>"; };
 		347A3BC92D2D9E5B004243CE /* QueridoDiario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QueridoDiario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		347A3BCC2D2D9E5B004243CE /* QueridoDiarioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueridoDiarioApp.swift; sourceTree = "<group>"; };
 		347A3BCE2D2D9E5B004243CE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,6 +93,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BB60E112DA43AFA00ACA7E8 /* LockersAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				0BB60E122DA43B2100ACA7E8 /* My Lock - Animations(1).json */,
+				0BB60E132DA43B2100ACA7E8 /* My Lock - Animations(2).json */,
+				0BB60E142DA43B2100ACA7E8 /* My Lock - Animations(3).json */,
+				0BB60E152DA43B2100ACA7E8 /* My Lock - Animations(4).json */,
+			);
+			path = LockersAnimations;
+			sourceTree = "<group>";
+		};
 		347A3BC02D2D9E5B004243CE = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +193,7 @@
 		34FC5EC42D31882600048049 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0BB60E112DA43AFA00ACA7E8 /* LockersAnimations */,
 				347A3BD22D2D9E5C004243CE /* Assets.xcassets */,
 				347A3BD42D2D9E5C004243CE /* Preview Content */,
 			);
@@ -284,6 +304,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BB60E162DA43B2100ACA7E8 /* My Lock - Animations(3).json in Resources */,
+				0BB60E172DA43B2100ACA7E8 /* My Lock - Animations(4).json in Resources */,
+				0BB60E182DA43B2100ACA7E8 /* My Lock - Animations(2).json in Resources */,
+				0BB60E192DA43B2100ACA7E8 /* My Lock - Animations(1).json in Resources */,
 				347A3BD62D2D9E5C004243CE /* Preview Assets.xcassets in Resources */,
 				347A3BD32D2D9E5C004243CE /* Assets.xcassets in Resources */,
 			);
