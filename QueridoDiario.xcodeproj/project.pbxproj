@@ -11,6 +11,10 @@
 		0BB60E172DA43B2100ACA7E8 /* My Lock - Animations(4).json in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E152DA43B2100ACA7E8 /* My Lock - Animations(4).json */; };
 		0BB60E182DA43B2100ACA7E8 /* My Lock - Animations(2).json in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E132DA43B2100ACA7E8 /* My Lock - Animations(2).json */; };
 		0BB60E192DA43B2100ACA7E8 /* My Lock - Animations(1).json in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E122DA43B2100ACA7E8 /* My Lock - Animations(1).json */; };
+		0BB60E1C2DA4464A00ACA7E8 /* BricolageGrotesque.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E1B2DA4464A00ACA7E8 /* BricolageGrotesque.ttf */; };
+		0BB60E542DA4483500ACA7E8 /* BricolageGrotesque-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E532DA4483500ACA7E8 /* BricolageGrotesque-SemiBold.ttf */; };
+		0BB60E562DA4484D00ACA7E8 /* BricolageGrotesque-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E552DA4484D00ACA7E8 /* BricolageGrotesque-Regular.ttf */; };
+		0BB60E582DA4485400ACA7E8 /* BricolageGrotesque-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E572DA4485400ACA7E8 /* BricolageGrotesque-ExtraBold.ttf */; };
 		347A3BCD2D2D9E5B004243CE /* QueridoDiarioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BCC2D2D9E5B004243CE /* QueridoDiarioApp.swift */; };
 		347A3BCF2D2D9E5B004243CE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BCE2D2D9E5B004243CE /* ContentView.swift */; };
 		347A3BD12D2D9E5B004243CE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BD02D2D9E5B004243CE /* Item.swift */; };
@@ -49,6 +53,11 @@
 		0BB60E132DA43B2100ACA7E8 /* My Lock - Animations(2).json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "My Lock - Animations(2).json"; sourceTree = "<group>"; };
 		0BB60E142DA43B2100ACA7E8 /* My Lock - Animations(3).json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "My Lock - Animations(3).json"; sourceTree = "<group>"; };
 		0BB60E152DA43B2100ACA7E8 /* My Lock - Animations(4).json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "My Lock - Animations(4).json"; sourceTree = "<group>"; };
+		0BB60E1B2DA4464A00ACA7E8 /* BricolageGrotesque.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BricolageGrotesque.ttf; sourceTree = "<group>"; };
+		0BB60E522DA4469400ACA7E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0BB60E532DA4483500ACA7E8 /* BricolageGrotesque-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BricolageGrotesque-SemiBold.ttf"; sourceTree = "<group>"; };
+		0BB60E552DA4484D00ACA7E8 /* BricolageGrotesque-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BricolageGrotesque-Regular.ttf"; sourceTree = "<group>"; };
+		0BB60E572DA4485400ACA7E8 /* BricolageGrotesque-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BricolageGrotesque-ExtraBold.ttf"; sourceTree = "<group>"; };
 		347A3BC92D2D9E5B004243CE /* QueridoDiario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QueridoDiario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		347A3BCC2D2D9E5B004243CE /* QueridoDiarioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueridoDiarioApp.swift; sourceTree = "<group>"; };
 		347A3BCE2D2D9E5B004243CE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,6 +113,17 @@
 			path = LockersAnimations;
 			sourceTree = "<group>";
 		};
+		0BB60E1A2DA4463900ACA7E8 /* BricolageGrotesque */ = {
+			isa = PBXGroup;
+			children = (
+				0BB60E572DA4485400ACA7E8 /* BricolageGrotesque-ExtraBold.ttf */,
+				0BB60E552DA4484D00ACA7E8 /* BricolageGrotesque-Regular.ttf */,
+				0BB60E532DA4483500ACA7E8 /* BricolageGrotesque-SemiBold.ttf */,
+				0BB60E1B2DA4464A00ACA7E8 /* BricolageGrotesque.ttf */,
+			);
+			path = BricolageGrotesque;
+			sourceTree = "<group>";
+		};
 		347A3BC02D2D9E5B004243CE = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +147,7 @@
 		347A3BCB2D2D9E5B004243CE /* QueridoDiario */ = {
 			isa = PBXGroup;
 			children = (
+				0BB60E522DA4469400ACA7E8 /* Info.plist */,
 				34FC5EB72D302B8400048049 /* ViewModels */,
 				34FC5EB62D302B7E00048049 /* Models */,
 				34FC5EB52D302ADD00048049 /* Views */,
@@ -193,6 +214,7 @@
 		34FC5EC42D31882600048049 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0BB60E1A2DA4463900ACA7E8 /* BricolageGrotesque */,
 				0BB60E112DA43AFA00ACA7E8 /* LockersAnimations */,
 				347A3BD22D2D9E5C004243CE /* Assets.xcassets */,
 				347A3BD42D2D9E5C004243CE /* Preview Content */,
@@ -304,11 +326,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BB60E582DA4485400ACA7E8 /* BricolageGrotesque-ExtraBold.ttf in Resources */,
+				0BB60E562DA4484D00ACA7E8 /* BricolageGrotesque-Regular.ttf in Resources */,
 				0BB60E162DA43B2100ACA7E8 /* My Lock - Animations(3).json in Resources */,
 				0BB60E172DA43B2100ACA7E8 /* My Lock - Animations(4).json in Resources */,
+				0BB60E1C2DA4464A00ACA7E8 /* BricolageGrotesque.ttf in Resources */,
 				0BB60E182DA43B2100ACA7E8 /* My Lock - Animations(2).json in Resources */,
 				0BB60E192DA43B2100ACA7E8 /* My Lock - Animations(1).json in Resources */,
 				347A3BD62D2D9E5C004243CE /* Preview Assets.xcassets in Resources */,
+				0BB60E542DA4483500ACA7E8 /* BricolageGrotesque-SemiBold.ttf in Resources */,
 				347A3BD32D2D9E5C004243CE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -512,11 +538,13 @@
 				DEVELOPMENT_TEAM = MT4A7M75NC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QueridoDiario/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -541,11 +569,13 @@
 				DEVELOPMENT_TEAM = MT4A7M75NC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QueridoDiario/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

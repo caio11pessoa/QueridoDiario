@@ -14,6 +14,8 @@ struct ContentView: View {
 
     var body: some View {
         NavigationSplitView {
+            Text("Querido Diário")
+                .font(Font.custom("BricolageGrotesque-SemiBold", size: 44))
             List {
                 ForEach(items) { item in
                     NavigationLink {
