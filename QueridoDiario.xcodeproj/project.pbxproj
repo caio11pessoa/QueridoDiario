@@ -16,6 +16,7 @@
 		0BB60E562DA4484D00ACA7E8 /* BricolageGrotesque-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E552DA4484D00ACA7E8 /* BricolageGrotesque-Regular.ttf */; };
 		0BB60E582DA4485400ACA7E8 /* BricolageGrotesque-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E572DA4485400ACA7E8 /* BricolageGrotesque-ExtraBold.ttf */; };
 		0BB60E5A2DA450C400ACA7E8 /* DiaryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB60E592DA450BE00ACA7E8 /* DiaryPage.swift */; };
+		0BB60E5F2DA45F6400ACA7E8 /* PageColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */; };
 		347A3BCD2D2D9E5B004243CE /* QueridoDiarioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BCC2D2D9E5B004243CE /* QueridoDiarioApp.swift */; };
 		347A3BCF2D2D9E5B004243CE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BCE2D2D9E5B004243CE /* ContentView.swift */; };
 		347A3BD12D2D9E5B004243CE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BD02D2D9E5B004243CE /* Item.swift */; };
@@ -60,6 +61,7 @@
 		0BB60E552DA4484D00ACA7E8 /* BricolageGrotesque-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BricolageGrotesque-Regular.ttf"; sourceTree = "<group>"; };
 		0BB60E572DA4485400ACA7E8 /* BricolageGrotesque-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BricolageGrotesque-ExtraBold.ttf"; sourceTree = "<group>"; };
 		0BB60E592DA450BE00ACA7E8 /* DiaryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPage.swift; sourceTree = "<group>"; };
+		0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageColorPicker.swift; sourceTree = "<group>"; };
 		347A3BC92D2D9E5B004243CE /* QueridoDiario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QueridoDiario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		347A3BCC2D2D9E5B004243CE /* QueridoDiarioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueridoDiarioApp.swift; sourceTree = "<group>"; };
 		347A3BCE2D2D9E5B004243CE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -126,6 +128,14 @@
 			path = BricolageGrotesque;
 			sourceTree = "<group>";
 		};
+		0BB60E5B2DA45F2C00ACA7E8 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		347A3BC02D2D9E5B004243CE = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +197,7 @@
 		34FC5EB52D302ADD00048049 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0BB60E5B2DA45F2C00ACA7E8 /* Components */,
 				347A3BCE2D2D9E5B004243CE /* ContentView.swift */,
 				34FC5EBA2D302C9300048049 /* PasswordView.swift */,
 				34FC5EBC2D302E1200048049 /* HomeView.swift */,
@@ -371,6 +382,7 @@
 				34FC5EC32D302EA400048049 /* StatisticsView.swift in Sources */,
 				34FC5EBD2D302E1200048049 /* HomeView.swift in Sources */,
 				34FC5EB92D302BAE00048049 /* ViewModel.swift in Sources */,
+				0BB60E5F2DA45F6400ACA7E8 /* PageColorPicker.swift in Sources */,
 				34FC5EC12D302E7500048049 /* DiaryView.swift in Sources */,
 				347A3BCD2D2D9E5B004243CE /* QueridoDiarioApp.swift in Sources */,
 			);

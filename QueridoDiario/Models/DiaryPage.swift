@@ -26,7 +26,7 @@ enum PageColor: Codable {
     var color: Color {
         switch self {
         case .blue:
-            return Color("tertiary_02")
+            return Color("tertiary_03")
         case .pink:
             return Color("secondary_04")
         case .purple:
