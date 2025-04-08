@@ -11,7 +11,6 @@ struct EntriesView: View {
     var body: some View {
         VStack {
             Text("Entries")
-            ToolBar()
         }
     }
 }
