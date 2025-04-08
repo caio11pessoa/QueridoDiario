@@ -9,49 +9,38 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    
 
+    @ObservedObject private var screen = DeviceDimensions.shared
+    
     var body: some View {
-        NavigationSplitView {
-            Text("Querido Diário")
-                .font(Font.custom("BricolageGrotesque-SemiBold", size: 44))
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+        GeometryReader { geometry in
+            TabView {
+                EntriesView()
+                    .tabItem {
+                        Image("Icon=Home, State=Default, Bg Fill=False")
+                            .renderingMode(.template)
+                        Text("Início")
                     }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    .tag(0)
+                
+                NewEntryView()
+                    .tabItem {
+                        Image("Icon=Diario, State=Default, Bg Fill=False")
+                            .renderingMode(.template)
+                        Text("Diário")
                     }
-                }
-            }
-        } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+                    .tag(1)
+                
+                SettingsView()
+                    .tabItem {
+                        Image("Icon=Config, State=Default, Bg Fill=False")
+                            .renderingMode(.template)
+                        Text("Ajustes")
+                    }
+                    .tag(2)
             }
         }
     }
@@ -59,5 +48,4 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
 }

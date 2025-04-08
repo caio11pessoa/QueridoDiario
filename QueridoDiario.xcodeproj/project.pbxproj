@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0B5B12DA2DA4694100B4A179 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12D92DA4694100B4A179 /* CustomButton.swift */; };
+		0B5B12DC2DA56B1300B4A179 /* ToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12DB2DA56B1300B4A179 /* ToolBar.swift */; };
+		0B5B12DE2DA56D8800B4A179 /* DeviceDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12DD2DA56D7F00B4A179 /* DeviceDimensions.swift */; };
+		0B5B12E02DA57AFD00B4A179 /* EntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12DF2DA57AFD00B4A179 /* EntriesView.swift */; };
+		0B5B12E22DA57B1C00B4A179 /* NewEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12E12DA57B1C00B4A179 /* NewEntryView.swift */; };
+		0B5B12E42DA57B3300B4A179 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12E32DA57B3300B4A179 /* SettingsView.swift */; };
 		0BB60E162DA43B2100ACA7E8 /* My Lock - Animations(3).json in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E142DA43B2100ACA7E8 /* My Lock - Animations(3).json */; };
 		0BB60E172DA43B2100ACA7E8 /* My Lock - Animations(4).json in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E152DA43B2100ACA7E8 /* My Lock - Animations(4).json */; };
 		0BB60E182DA43B2100ACA7E8 /* My Lock - Animations(2).json in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E132DA43B2100ACA7E8 /* My Lock - Animations(2).json */; };
@@ -20,18 +25,11 @@
 		0BB60E5F2DA45F6400ACA7E8 /* PageColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */; };
 		347A3BCD2D2D9E5B004243CE /* QueridoDiarioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BCC2D2D9E5B004243CE /* QueridoDiarioApp.swift */; };
 		347A3BCF2D2D9E5B004243CE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BCE2D2D9E5B004243CE /* ContentView.swift */; };
-		347A3BD12D2D9E5B004243CE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BD02D2D9E5B004243CE /* Item.swift */; };
 		347A3BD32D2D9E5C004243CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 347A3BD22D2D9E5C004243CE /* Assets.xcassets */; };
 		347A3BD62D2D9E5C004243CE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 347A3BD52D2D9E5C004243CE /* Preview Assets.xcassets */; };
 		347A3BE02D2D9E5C004243CE /* QueridoDiarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BDF2D2D9E5C004243CE /* QueridoDiarioTests.swift */; };
 		347A3BEA2D2D9E5C004243CE /* QueridoDiarioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BE92D2D9E5C004243CE /* QueridoDiarioUITests.swift */; };
 		347A3BEC2D2D9E5C004243CE /* QueridoDiarioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BEB2D2D9E5C004243CE /* QueridoDiarioUITestsLaunchTests.swift */; };
-		34FC5EB92D302BAE00048049 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FC5EB82D302BAE00048049 /* ViewModel.swift */; };
-		34FC5EBB2D302C9300048049 /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FC5EBA2D302C9300048049 /* PasswordView.swift */; };
-		34FC5EBD2D302E1200048049 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FC5EBC2D302E1200048049 /* HomeView.swift */; };
-		34FC5EBF2D302E4300048049 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FC5EBE2D302E4300048049 /* CalendarView.swift */; };
-		34FC5EC12D302E7500048049 /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FC5EC02D302E7500048049 /* DiaryView.swift */; };
-		34FC5EC32D302EA400048049 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FC5EC22D302EA400048049 /* StatisticsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +51,11 @@
 
 /* Begin PBXFileReference section */
 		0B5B12D92DA4694100B4A179 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		0B5B12DB2DA56B1300B4A179 /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
+		0B5B12DD2DA56D7F00B4A179 /* DeviceDimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDimensions.swift; sourceTree = "<group>"; };
+		0B5B12DF2DA57AFD00B4A179 /* EntriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesView.swift; sourceTree = "<group>"; };
+		0B5B12E12DA57B1C00B4A179 /* NewEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryView.swift; sourceTree = "<group>"; };
+		0B5B12E32DA57B3300B4A179 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0BB60E122DA43B2100ACA7E8 /* My Lock - Animations(1).json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "My Lock - Animations(1).json"; sourceTree = "<group>"; };
 		0BB60E132DA43B2100ACA7E8 /* My Lock - Animations(2).json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "My Lock - Animations(2).json"; sourceTree = "<group>"; };
 		0BB60E142DA43B2100ACA7E8 /* My Lock - Animations(3).json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "My Lock - Animations(3).json"; sourceTree = "<group>"; };
@@ -67,7 +70,6 @@
 		347A3BC92D2D9E5B004243CE /* QueridoDiario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QueridoDiario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		347A3BCC2D2D9E5B004243CE /* QueridoDiarioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueridoDiarioApp.swift; sourceTree = "<group>"; };
 		347A3BCE2D2D9E5B004243CE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		347A3BD02D2D9E5B004243CE /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		347A3BD22D2D9E5C004243CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		347A3BD52D2D9E5C004243CE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		347A3BDB2D2D9E5C004243CE /* QueridoDiarioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QueridoDiarioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,12 +77,6 @@
 		347A3BE52D2D9E5C004243CE /* QueridoDiarioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QueridoDiarioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		347A3BE92D2D9E5C004243CE /* QueridoDiarioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueridoDiarioUITests.swift; sourceTree = "<group>"; };
 		347A3BEB2D2D9E5C004243CE /* QueridoDiarioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueridoDiarioUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		34FC5EB82D302BAE00048049 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		34FC5EBA2D302C9300048049 /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
-		34FC5EBC2D302E1200048049 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		34FC5EBE2D302E4300048049 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		34FC5EC02D302E7500048049 /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
-		34FC5EC22D302EA400048049 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +131,7 @@
 			children = (
 				0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */,
 				0B5B12D92DA4694100B4A179 /* CustomButton.swift */,
+				0B5B12DB2DA56B1300B4A179 /* ToolBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -202,11 +199,9 @@
 			children = (
 				0BB60E5B2DA45F2C00ACA7E8 /* Components */,
 				347A3BCE2D2D9E5B004243CE /* ContentView.swift */,
-				34FC5EBA2D302C9300048049 /* PasswordView.swift */,
-				34FC5EBC2D302E1200048049 /* HomeView.swift */,
-				34FC5EBE2D302E4300048049 /* CalendarView.swift */,
-				34FC5EC02D302E7500048049 /* DiaryView.swift */,
-				34FC5EC22D302EA400048049 /* StatisticsView.swift */,
+				0B5B12DF2DA57AFD00B4A179 /* EntriesView.swift */,
+				0B5B12E12DA57B1C00B4A179 /* NewEntryView.swift */,
+				0B5B12E32DA57B3300B4A179 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,7 +210,6 @@
 			isa = PBXGroup;
 			children = (
 				0BB60E592DA450BE00ACA7E8 /* DiaryPage.swift */,
-				347A3BD02D2D9E5B004243CE /* Item.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -223,7 +217,7 @@
 		34FC5EB72D302B8400048049 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				34FC5EB82D302BAE00048049 /* ViewModel.swift */,
+				0B5B12DD2DA56D7F00B4A179 /* DeviceDimensions.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -377,17 +371,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B5B12E22DA57B1C00B4A179 /* NewEntryView.swift in Sources */,
+				0B5B12DE2DA56D8800B4A179 /* DeviceDimensions.swift in Sources */,
+				0B5B12E02DA57AFD00B4A179 /* EntriesView.swift in Sources */,
 				0BB60E5A2DA450C400ACA7E8 /* DiaryPage.swift in Sources */,
-				34FC5EBB2D302C9300048049 /* PasswordView.swift in Sources */,
-				34FC5EBF2D302E4300048049 /* CalendarView.swift in Sources */,
 				347A3BCF2D2D9E5B004243CE /* ContentView.swift in Sources */,
-				347A3BD12D2D9E5B004243CE /* Item.swift in Sources */,
-				34FC5EC32D302EA400048049 /* StatisticsView.swift in Sources */,
-				34FC5EBD2D302E1200048049 /* HomeView.swift in Sources */,
-				34FC5EB92D302BAE00048049 /* ViewModel.swift in Sources */,
+				0B5B12E42DA57B3300B4A179 /* SettingsView.swift in Sources */,
 				0B5B12DA2DA4694100B4A179 /* CustomButton.swift in Sources */,
 				0BB60E5F2DA45F6400ACA7E8 /* PageColorPicker.swift in Sources */,
-				34FC5EC12D302E7500048049 /* DiaryView.swift in Sources */,
+				0B5B12DC2DA56B1300B4A179 /* ToolBar.swift in Sources */,
 				347A3BCD2D2D9E5B004243CE /* QueridoDiarioApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
