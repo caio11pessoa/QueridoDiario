@@ -21,8 +21,12 @@ struct PageColorPicker: View {
             }
             HStack {
                 RoundedRectangle(cornerSize: CGSize(width: 8, height: 8))
-                    .fill(selectedColor.color)
+                    .fill(selectedColor.selected)
                     .frame(maxWidth: 60, maxHeight: 60)
+                    .overlay(
+                        RoundedRectangle(cornerSize: CGSize(width: 8, height: 8))
+                            .stroke(Color("primary_02"), lineWidth: selectedColor == PageColor.white ? 2 : 0)
+                    )
                 Spacer()
                 ColorOption(selectedColor: $selectedColor, color: PageColor.blue)
                 Spacer()
@@ -58,8 +62,12 @@ struct ColorOption: View {
             selectedColor = color
         }, label: {
             Circle()
-                .fill(color.color)
+                .fill(color.selected)
                 .frame(maxWidth: 30, maxHeight: 30)
+                .overlay(
+                    Circle()
+                        .stroke(Color("primary_02"), lineWidth: color == PageColor.white ? 2 : 0)
+                )
         })
     }
 }

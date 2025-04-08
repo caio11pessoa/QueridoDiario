@@ -23,20 +23,36 @@ enum PageColor: Codable {
     case green
     case white
     
-    var color: Color {
+    var standard: Color {
+        switch self {
+        case .blue:
+            return Color("tertiary_02")
+        case .pink:
+            return Color("secondary_02")
+        case .purple:
+            return Color("primary_02")
+        case .green:
+            return Color("quaternary_02")
+        case .white:
+            return Color("neutrals_01")
+        }
+    }
+    
+    var selected: Color {
         switch self {
         case .blue:
             return Color("tertiary_03")
         case .pink:
-            return Color("secondary_04")
+            return Color("secondary_01")
         case .purple:
             return Color("primary_03")
         case .green:
             return Color("quaternary_03")
         case .white:
-            return Color("neutrals_02")
+            return Color("neutrals_01")
         }
     }
+    
 }
 
 enum Mood: Codable {
