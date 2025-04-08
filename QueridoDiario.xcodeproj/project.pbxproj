@@ -10,9 +10,10 @@
 		0B5B12DA2DA4694100B4A179 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12D92DA4694100B4A179 /* CustomButton.swift */; };
 		0B5B12DC2DA56B1300B4A179 /* ToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12DB2DA56B1300B4A179 /* ToolBar.swift */; };
 		0B5B12DE2DA56D8800B4A179 /* DeviceDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12DD2DA56D7F00B4A179 /* DeviceDimensions.swift */; };
-		0B5B12E02DA57AFD00B4A179 /* EntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12DF2DA57AFD00B4A179 /* EntriesView.swift */; };
-		0B5B12E22DA57B1C00B4A179 /* NewEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12E12DA57B1C00B4A179 /* NewEntryView.swift */; };
+		0B5B12E02DA57AFD00B4A179 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12DF2DA57AFD00B4A179 /* HomeView.swift */; };
+		0B5B12E22DA57B1C00B4A179 /* EntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12E12DA57B1C00B4A179 /* EntriesView.swift */; };
 		0B5B12E42DA57B3300B4A179 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12E32DA57B3300B4A179 /* SettingsView.swift */; };
+		0B5B12E62DA5993200B4A179 /* RoundedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12E52DA5992700B4A179 /* RoundedTabBar.swift */; };
 		0BB60E162DA43B2100ACA7E8 /* My Lock - Animations(3).json in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E142DA43B2100ACA7E8 /* My Lock - Animations(3).json */; };
 		0BB60E172DA43B2100ACA7E8 /* My Lock - Animations(4).json in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E152DA43B2100ACA7E8 /* My Lock - Animations(4).json */; };
 		0BB60E182DA43B2100ACA7E8 /* My Lock - Animations(2).json in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E132DA43B2100ACA7E8 /* My Lock - Animations(2).json */; };
@@ -53,9 +54,10 @@
 		0B5B12D92DA4694100B4A179 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		0B5B12DB2DA56B1300B4A179 /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
 		0B5B12DD2DA56D7F00B4A179 /* DeviceDimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDimensions.swift; sourceTree = "<group>"; };
-		0B5B12DF2DA57AFD00B4A179 /* EntriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesView.swift; sourceTree = "<group>"; };
-		0B5B12E12DA57B1C00B4A179 /* NewEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryView.swift; sourceTree = "<group>"; };
+		0B5B12DF2DA57AFD00B4A179 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		0B5B12E12DA57B1C00B4A179 /* EntriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesView.swift; sourceTree = "<group>"; };
 		0B5B12E32DA57B3300B4A179 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0B5B12E52DA5992700B4A179 /* RoundedTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTabBar.swift; sourceTree = "<group>"; };
 		0BB60E122DA43B2100ACA7E8 /* My Lock - Animations(1).json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "My Lock - Animations(1).json"; sourceTree = "<group>"; };
 		0BB60E132DA43B2100ACA7E8 /* My Lock - Animations(2).json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "My Lock - Animations(2).json"; sourceTree = "<group>"; };
 		0BB60E142DA43B2100ACA7E8 /* My Lock - Animations(3).json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "My Lock - Animations(3).json"; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 		0BB60E5B2DA45F2C00ACA7E8 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				0B5B12E52DA5992700B4A179 /* RoundedTabBar.swift */,
 				0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */,
 				0B5B12D92DA4694100B4A179 /* CustomButton.swift */,
 				0B5B12DB2DA56B1300B4A179 /* ToolBar.swift */,
@@ -199,8 +202,8 @@
 			children = (
 				0BB60E5B2DA45F2C00ACA7E8 /* Components */,
 				347A3BCE2D2D9E5B004243CE /* ContentView.swift */,
-				0B5B12DF2DA57AFD00B4A179 /* EntriesView.swift */,
-				0B5B12E12DA57B1C00B4A179 /* NewEntryView.swift */,
+				0B5B12DF2DA57AFD00B4A179 /* HomeView.swift */,
+				0B5B12E12DA57B1C00B4A179 /* EntriesView.swift */,
 				0B5B12E32DA57B3300B4A179 /* SettingsView.swift */,
 			);
 			path = Views;
@@ -371,9 +374,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B5B12E22DA57B1C00B4A179 /* NewEntryView.swift in Sources */,
+				0B5B12E22DA57B1C00B4A179 /* EntriesView.swift in Sources */,
+				0B5B12E62DA5993200B4A179 /* RoundedTabBar.swift in Sources */,
 				0B5B12DE2DA56D8800B4A179 /* DeviceDimensions.swift in Sources */,
-				0B5B12E02DA57AFD00B4A179 /* EntriesView.swift in Sources */,
+				0B5B12E02DA57AFD00B4A179 /* HomeView.swift in Sources */,
 				0BB60E5A2DA450C400ACA7E8 /* DiaryPage.swift in Sources */,
 				347A3BCF2D2D9E5B004243CE /* ContentView.swift in Sources */,
 				0B5B12E42DA57B3300B4A179 /* SettingsView.swift in Sources */,

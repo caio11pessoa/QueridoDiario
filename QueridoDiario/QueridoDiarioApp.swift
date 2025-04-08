@@ -22,11 +22,21 @@ struct QueridoDiarioApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+    
+    init() {
+        setupTabBarAppearance()
+    }
 
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
         .modelContainer(sharedModelContainer)
+    }
+    
+    private func setupTabBarAppearance() {
+        UITabBar.appearance().backgroundColor = UIColor(Color("neutrals_01"))
+        UITabBar.appearance().layer.cornerRadius = 15
+        UITabBar.appearance().layer.masksToBounds = true
     }
 }

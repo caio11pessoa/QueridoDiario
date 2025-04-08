@@ -6,41 +6,31 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
     
-    @Environment(\.modelContext) private var modelContext
-    
+    @State private var selectedTab = 0
 
-    @ObservedObject private var screen = DeviceDimensions.shared
     
     var body: some View {
         GeometryReader { geometry in
-            TabView {
-                EntriesView()
-                    .tabItem {
-                        Image("Icon=Home, State=Default, Bg Fill=False")
-                            .renderingMode(.template)
-                        Text("Início")
+            ZStack(alignment: .bottom) {
+                Group {
+                    switch selectedTab {
+                    case 0: HomeView()
+                    case 1: EntriesView()
+                    case 2: SettingsView()
+                    default: HomeView()
                     }
-                    .tag(0)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
-                NewEntryView()
-                    .tabItem {
-                        Image("Icon=Diario, State=Default, Bg Fill=False")
-                            .renderingMode(.template)
-                        Text("Diário")
-                    }
-                    .tag(1)
-                
-                SettingsView()
-                    .tabItem {
-                        Image("Icon=Config, State=Default, Bg Fill=False")
-                            .renderingMode(.template)
-                        Text("Ajustes")
-                    }
-                    .tag(2)
+                RoundedTabBar(selectedTab: $selectedTab)
+            }
+            .background(Color("primary_01"))
+            .ignoresSafeArea(.all, edges: .bottom)
+            .onAppear {
+                DeviceDimensions.shared.setDimension(geometry: geometry)
             }
         }
     }
@@ -49,3 +39,4 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
