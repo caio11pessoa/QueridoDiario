@@ -23,7 +23,6 @@ struct CustomButton: View {
                     .padding(.vertical, 8)
                 Spacer()
             }
-//                .frame(width: 200, height: 50)
         })
         .background(buttonColor.background)
         .cornerRadius(8)
@@ -91,25 +90,3 @@ enum ButtonType {
         }
     }
 }
-
-
-//enum ButtonStyle {
-//    case white(String)
-//    case lightPurple(String)
-//    case purple(String)
-//    case whiteWithIcon(String, Image)
-//    case lightPurpleWithIcon(String, Image)
-//    case purpleWithIcon(String, Image)
-//    
-//    var label: any View {
-//        switch self {
-//            case .white(let text):
-//            case .lightPurple(let text):
-//            case .purple(let text):
-//                return Text("\(text)")
-//                .font(Font.custom("BricolageGrotesque-ExtraBold", size: 24))
-//            
-//                    
-//        }
-//    }
-//}

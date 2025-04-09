@@ -26,7 +26,9 @@ struct ToolBar: View {
                 HStack {
                     Button(action: {
                         action()
-                        isSelected.toggle()
+                        withAnimation {
+                            isSelected.toggle()
+                        }
                     }, label: {
                         Image(isSelected ? "Icon=Paint, State=Default, Bg Fill=True" : "Icon=Paint, State=Default, Bg Fill=False")
                             .resizable()
