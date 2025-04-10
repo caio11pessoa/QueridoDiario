@@ -32,16 +32,11 @@ struct PageColorPicker: View {
                         RoundedRectangle(cornerSize: CGSize(width: 8, height: 8))
                             .stroke(Color(.primary02), lineWidth: selectedColor == PageColor.white ? 2 : 0)
                     )
-                Spacer()
-                ColorOption(selectedColor: $selectedColor, color: PageColor.blue)
-                Spacer()
-                ColorOption(selectedColor: $selectedColor, color: PageColor.pink)
-                Spacer()
-                ColorOption(selectedColor: $selectedColor, color: PageColor.purple)
-                Spacer()
-                ColorOption(selectedColor: $selectedColor, color: PageColor.green)
-                Spacer()
-                ColorOption(selectedColor: $selectedColor, color: PageColor.white)
+                
+                ForEach(PageColor.allCases, id: \.self) { color in
+                    Spacer()
+                    ColorOption(selectedColor: $selectedColor, color: color)
+                }
             }
         }
         .frame(maxHeight: 128)

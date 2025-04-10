@@ -16,7 +16,7 @@ struct DiaryPage {
     var createdAt: Date
 }
 
-enum PageColor: Codable {
+enum PageColor: Codable, CaseIterable {
     case blue
     case pink
     case purple

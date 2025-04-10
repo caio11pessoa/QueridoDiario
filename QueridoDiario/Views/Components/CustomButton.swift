@@ -23,7 +23,6 @@ struct CustomButton: View {
                     .padding(.vertical, 8)
                 Spacer()
             }
-//                .frame(width: 200, height: 50)
         })
         .background(buttonColor.background)
         .cornerRadius(8)
@@ -74,45 +73,32 @@ enum ButtonType {
     case plusIcon(String, ButtonColor)
     case arrowIcon(String, ButtonColor)
     
-    var label: AnyView {
+    private struct LabelView: View {
+        let text: String
+        var imageName: String?
+        
+        var body: some View {
+            HStack {
+                Text(text)
+                    .font(.custom("BricolageGrotesque-ExtraBold", size: 24))
+                if let imageName = imageName {
+                    Image(imageName)
+                }
+            }
+        }
+    }
+    
+    
+    var label: some View {
         switch self {
         case .noIcon(let text):
-            return AnyView(Text("\(text)")
-                .font(Font.custom("BricolageGrotesque-ExtraBold", size: 24)))
+            LabelView(text: text)
+
         case .plusIcon(let text, let color):
-            return AnyView(HStack {
-                Text("\(text)")
-                    .font(Font.custom("BricolageGrotesque-ExtraBold", size: 24))
-                Image("Icon=Plus, State=Select, Bg Fill=\(color == .purple ? "True" : "False")")
-            })
+            LabelView(text: text, imageName: "Icon=Plus, State=Select, Bg Fill=\(color == .purple ? "True" : "False")")
+
         case .arrowIcon(let text, let color):
-            return AnyView(HStack {
-                Text("\(text)")
-                    .font(Font.custom("BricolageGrotesque-ExtraBold", size: 24))
-                Image("Icon=Right Arrow, State=Select, Bg Fill=\(color == .purple ? "True" : "False")")
-            })
+            LabelView(text: text, imageName: "Icon=Right Arrow, State=Select, Bg Fill=\(color == .purple ? "True" : "False")")
         }
     }
 }
-
-
-//enum ButtonStyle {
-//    case white(String)
-//    case lightPurple(String)
-//    case purple(String)
-//    case whiteWithIcon(String, Image)
-//    case lightPurpleWithIcon(String, Image)
-//    case purpleWithIcon(String, Image)
-//    
-//    var label: any View {
-//        switch self {
-//            case .white(let text):
-//            case .lightPurple(let text):
-//            case .purple(let text):
-//                return Text("\(text)")
-//                .font(Font.custom("BricolageGrotesque-ExtraBold", size: 24))
-//            
-//                    
-//        }
-//    }
-//}
