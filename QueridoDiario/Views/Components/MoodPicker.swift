@@ -15,9 +15,14 @@ struct MoodPicker: View {
     
     var body: some View {
         Button(action: action, label: {
-            mood.emote
-                .resizable()
-                .frame(width: 59.44, height: 59.44)
+            VStack {
+                mood.emote
+                    .resizable()
+                    .frame(width: 59.44, height: 59.44)
+                Text("Humor")
+                    .font(Font.custom("BricolageGrotesque-ExtraBold", size: 12.39))
+                    .foregroundStyle(Color.neutrals04)
+            }
         })
     }
 }
