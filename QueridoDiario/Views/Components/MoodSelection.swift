@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MoodSelection: View {
+struct MoodSelectionGrid: View {
     let moodOptions = Mood.allCases.dropLast()
 
     var body: some View {
@@ -42,5 +42,5 @@ struct MoodSelection: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    MoodSelection()
+    MoodSelectionGrid()
 }

@@ -11,10 +11,10 @@ struct MoodOption: View {
     
     var mood: Mood = Mood.maligno
     
+    var action: () -> Void = {}
+    
     var body: some View {
-        Button(action: {
-            
-        }, label: {
+        Button(action: action, label: {
             ZStack {
                 Circle()
                     .fill(Color("primary_02"))
