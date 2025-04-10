@@ -55,23 +55,29 @@ enum PageColor: Codable, CaseIterable {
     
 }
 
-enum Mood: Codable {
-    case animado
-    case assustado
-    case distraido
-    case empty
-    case enojado
-    case falante
-    case feliz
+enum Mood: Codable, CaseIterable {
+    
     case intrigado
+    case feliz
+    case uau
+    
+    case animado
+    case reclamao
+    case distraido
+    
     case lesado
+    case surpresa
+    case enojado
+    
+    case assustado
     case maligno
+    case falante
+    
+    case tristonho
     case maravilhado
     case rapaaaaz
-    case reclamao
-    case surpresa
-    case tristonho
-    case uau
+    
+    case empty
     
     var emote: Image {
         switch self {
