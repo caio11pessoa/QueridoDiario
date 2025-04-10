@@ -21,10 +21,11 @@ struct ToolBar: View {
             if isSelected {
                 PageColorPicker(isPresented: $isSelected)
                     .transition(
-                        .asymmetric(insertion: .push(from: .bottom), removal: .push(from: .top))
+                        .asymmetric(
+                            insertion: .push(from: .bottom),
+                            removal: .push(from: .top))
                     )
             }
-                
             HStack {
                 Spacer()
                 HStack {
@@ -34,17 +35,17 @@ struct ToolBar: View {
                             isSelected.toggle()
                         }
                     }, label: {
-                        Image(isSelected ? "Icon=Paint, State=Default, Bg Fill=True" : "Icon=Paint, State=Default, Bg Fill=False")
+                        Image(isSelected ? .iconPaintStateDefaultBgFillTrue : .iconPaintStateDefaultBgFillFalse)
                             .resizable()
                             .frame(width: 44, height: 44)
                     })
                     .padding()
                 }
-                .background(Color("neutrals_01"))
+                .background(Color(.neutrals01))
                 .frame(width: 84, height: 80)
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color("primary_02"), lineWidth: 1)
+                        .stroke(Color(.primary02), lineWidth: 1)
                 )
             }
         }

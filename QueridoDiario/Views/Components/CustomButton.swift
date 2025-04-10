@@ -33,7 +33,10 @@ struct CustomButton: View {
 }
 
 #Preview {
-    CustomButton()
+    CustomButton(buttonColor: .purple)
+    CustomButton(buttonColor: .white)
+    CustomButton(buttonColor: .lightPurple)
+    
 }
 
 enum ButtonColor {
@@ -44,28 +47,28 @@ enum ButtonColor {
     var background: Color {
         switch self {
         case .white:
-            return Color("neutrals_01")
+            return Color(.neutrals01)
         case .lightPurple:
-            return Color("primary_02")
+            return Color(.primary02)
         case .purple:
-            return Color("primary_04")
+            return Color(.primary04)
         }
     }
     
     var text: Color {
         switch self {
         case .white:
-            return Color("primary_06")
+            return Color(.primary06)
         case .lightPurple:
-            return Color("primary_06")
+            return Color(.primary06)
         case .purple:
-            return Color("neutrals_01")
+            return Color(.neutrals01)
             
         }
         
     }
 }
-    
+
 enum ButtonType {
     case noIcon(String)
     case plusIcon(String, ButtonColor)
