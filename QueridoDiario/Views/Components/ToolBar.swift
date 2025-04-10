@@ -17,8 +17,12 @@ struct ToolBar: View {
     
     var body: some View {
         VStack(alignment: .trailing) {
+            Spacer()
             if isSelected {
-                PageColorPicker()
+                PageColorPicker(isPresented: $isSelected)
+                    .transition(
+                        .asymmetric(insertion: .push(from: .bottom), removal: .push(from: .top))
+                    )
             }
                 
             HStack {
@@ -26,7 +30,9 @@ struct ToolBar: View {
                 HStack {
                     Button(action: {
                         action()
-                        isSelected.toggle()
+                        withAnimation {
+                            isSelected.toggle()
+                        }
                     }, label: {
                         Image(isSelected ? "Icon=Paint, State=Default, Bg Fill=True" : "Icon=Paint, State=Default, Bg Fill=False")
                             .resizable()
@@ -47,4 +53,6 @@ struct ToolBar: View {
 
 #Preview(traits: .sizeThatFitsLayout) {
     ToolBar()
+        .ignoresSafeArea()
+        .padding()
 }
