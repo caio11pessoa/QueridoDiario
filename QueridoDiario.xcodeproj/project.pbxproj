@@ -136,9 +136,9 @@
 			isa = PBXGroup;
 			children = (
 				0B5B12E52DA5992700B4A179 /* RoundedTabBar.swift */,
+				0B5B12DB2DA56B1300B4A179 /* ToolBar.swift */,
 				0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */,
 				0B5B12D92DA4694100B4A179 /* CustomButton.swift */,
-				0B5B12DB2DA56B1300B4A179 /* ToolBar.swift */,
 				0B5B12E72DA5A8A500B4A179 /* Card.swift */,
 			);
 			path = Components;

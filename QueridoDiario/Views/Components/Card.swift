@@ -43,11 +43,11 @@ struct Card: View {
                     .lineLimit(2)
             }
         }
-        .foregroundStyle(Color("primary_06"))
+        .foregroundStyle(Color(.primary06))
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 20)
-                .stroke(Color(Color("primary_03")), lineWidth: entry.color == PageColor.white ? 2 : 0)
+                .stroke(Color(Color(.primary03)), lineWidth: entry.color == PageColor.white ? 2 : 0)
                 .background(entry.color.standard)
                 .cornerRadius(20)
         )

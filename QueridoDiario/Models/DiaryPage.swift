@@ -16,7 +16,7 @@ struct DiaryPage {
     var createdAt: Date
 }
 
-enum PageColor: Codable {
+enum PageColor: Codable, CaseIterable {
     case blue
     case pink
     case purple
@@ -43,7 +43,7 @@ enum PageColor: Codable {
         case .blue:
             return Color("tertiary_03")
         case .pink:
-            return Color("secondary_01")
+            return Color("secondary_04")
         case .purple:
             return Color("primary_03")
         case .green:
@@ -76,37 +76,37 @@ enum Mood: Codable {
     var emote: Image {
         switch self {
         case .animado:
-            return Image("animado")
+            return Image(.animado)
         case .assustado:
-            return Image("assustado")
+            return Image(.assustado)
         case .distraido:
-            return Image("distraido")
+            return Image(.distraido)
         case .empty:
-            return Image("empty")
+            return Image(.empty)
         case .enojado:
-            return Image("enojado")
+            return Image(.enojado)
         case .falante:
-            return Image("falante")
+            return Image(.falante)
         case .feliz:
-            return Image("feliz")
+            return Image(.feliz)
         case .intrigado:
-            return Image("intrigado")
+            return Image(.intrigado)
         case .lesado:
-            return Image("lesado")
+            return Image(.lesado)
         case .maligno:
-            return Image("maligno")
+            return Image(.maligno)
         case .maravilhado:
-            return Image("maravilhado")
+            return Image(.maravilhado)
         case .rapaaaaz:
-            return Image("rapaaaaz")
+            return Image(.rapaaaaz)
         case .reclamao:
-            return Image("reclamao")
+            return Image(.reclamao)
         case .surpresa:
-            return Image("surpresa")
+            return Image(.surpresa)
         case .tristonho:
-            return Image("tristonho")
+            return Image(.tristonho)
         case .uau:
-            return Image("uau")
+            return Image(.uau)
         }
     }
 }

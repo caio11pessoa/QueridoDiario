@@ -27,7 +27,7 @@ struct ContentView: View {
                 
                 RoundedTabBar(selectedTab: $selectedTab)
             }
-            .background(Color("primary_01"))
+            .background(Color(.primary01))
             .ignoresSafeArea(.all, edges: .bottom)
             .onAppear {
                 DeviceDimensions.shared.setDimension(geometry: geometry)

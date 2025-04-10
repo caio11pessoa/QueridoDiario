@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RoundedTabBar: View {
     @Binding var selectedTab: Int
-
+    
     var body: some View {
         HStack {
             tabBarItem(index: 0, imageName: selectedTab == 0 ? "Icon=Home, State=Select, Bg Fill=False" : "Icon=Home, State=Default, Bg Fill=False", label: "Início")
@@ -22,12 +22,12 @@ struct RoundedTabBar: View {
                 .fill(Color(.systemBackground))
                 .overlay(
                     RoundedCorner(radius: 24, corners: [.topLeft, .topRight])
-                        .stroke(Color("primary_02"), lineWidth: 1)
+                        .stroke(Color(.primary02), lineWidth: 1)
                 )
         )
         .edgesIgnoringSafeArea(.bottom)
     }
-
+    
     private func tabBarItem(index: Int, imageName: String, label: String) -> some View {
         Button(action: {
             selectedTab = index
@@ -38,8 +38,10 @@ struct RoundedTabBar: View {
                     .scaledToFit()
                     .frame(height: 44)
                 Text(label)
-                    .font(Font.custom(index == selectedTab ? "BricolageGrotesque-ExtraBold" : "BricolageGrotesque-Regular", size: 17))
-                    .foregroundColor(Color("primary_06"))
+                    .font(
+                        Font.custom(index == selectedTab ? "BricolageGrotesque-ExtraBold" : "BricolageGrotesque-Regular", size: 17)
+                    )
+                    .foregroundColor(Color(.primary06))
             }
             .frame(maxWidth: .infinity)
         }
@@ -49,7 +51,7 @@ struct RoundedTabBar: View {
 struct RoundedCorner: Shape {
     var radius: CGFloat = 16
     var corners: UIRectCorner = .allCorners
-
+    
     func path(in rect: CGRect) -> Path {
         let path = UIBezierPath(
             roundedRect: rect,
