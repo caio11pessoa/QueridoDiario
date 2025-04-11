@@ -12,7 +12,7 @@ import SwiftData
 struct QueridoDiarioApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            
+            DiaryPage.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
