@@ -7,13 +7,23 @@
 
 import Foundation
 import SwiftUI
+import SwiftData
 
-struct DiaryPage {
+@Model
+class DiaryPage {
     var title: String
     var content: String
     var mood: Mood
     var color: PageColor
     var createdAt: Date
+    
+    init(title: String, content: String, mood: Mood, color: PageColor) {
+        self.title = title
+        self.content = content
+        self.mood = mood
+        self.color = color
+        self.createdAt = Date()
+    }
 }
 
 enum PageColor: Codable, CaseIterable {

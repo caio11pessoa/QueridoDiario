@@ -28,6 +28,7 @@
 		0BB60E5A2DA450C400ACA7E8 /* DiaryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB60E592DA450BE00ACA7E8 /* DiaryPage.swift */; };
 		0BB60E5F2DA45F6400ACA7E8 /* PageColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */; };
 		0BCF74162DA847C500B0CA2A /* AddPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF74152DA847C500B0CA2A /* AddPage.swift */; };
+		0BCF74292DA9954C00B0CA2A /* DiaryPageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF74282DA9954500B0CA2A /* DiaryPageRepository.swift */; };
 		0BFA68072DA6F36E000D382D /* MoodOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA68062DA6F36E000D382D /* MoodOption.swift */; };
 		0BFA68092DA70C75000D382D /* MoodSelectionGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA68082DA70C70000D382D /* MoodSelectionGrid.swift */; };
 		345D99D22DA8549E00376BEB /* DashedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D99D12DA8549E00376BEB /* DashedCard.swift */; };
@@ -80,6 +81,7 @@
 		0BB60E592DA450BE00ACA7E8 /* DiaryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPage.swift; sourceTree = "<group>"; };
 		0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageColorPicker.swift; sourceTree = "<group>"; };
 		0BCF74152DA847C500B0CA2A /* AddPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPage.swift; sourceTree = "<group>"; };
+		0BCF74282DA9954500B0CA2A /* DiaryPageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPageRepository.swift; sourceTree = "<group>"; };
 		0BFA68062DA6F36E000D382D /* MoodOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodOption.swift; sourceTree = "<group>"; };
 		0BFA68082DA70C70000D382D /* MoodSelectionGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSelectionGrid.swift; sourceTree = "<group>"; };
 		345D99D12DA8549E00376BEB /* DashedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedCard.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 		34FC5EB62D302B7E00048049 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0BCF74282DA9954500B0CA2A /* DiaryPageRepository.swift */,
 				0BB60E592DA450BE00ACA7E8 /* DiaryPage.swift */,
 			);
 			path = Models;
@@ -400,6 +403,7 @@
 				0B5B12E62DA5993200B4A179 /* RoundedTabBar.swift in Sources */,
 				0B5B12DE2DA56D8800B4A179 /* DeviceDimensions.swift in Sources */,
 				0B5B12E02DA57AFD00B4A179 /* HomeView.swift in Sources */,
+				0BCF74292DA9954C00B0CA2A /* DiaryPageRepository.swift in Sources */,
 				0BB60E5A2DA450C400ACA7E8 /* DiaryPage.swift in Sources */,
 				345D99D22DA8549E00376BEB /* DashedCard.swift in Sources */,
 				0B5B12EA2DA5B43800B4A179 /* DateFormatterHelper.swift in Sources */,
