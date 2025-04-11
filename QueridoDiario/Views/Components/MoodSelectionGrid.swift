@@ -1,5 +1,5 @@
 //
-//  MoodSelection.swift
+//  MoodSelectionGrid.swift
 //  QueridoDiario
 //
 //  Created by Lais Godinho on 09/04/25.
@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct MoodSelectionGrid: View {
+    
     let moodOptions = Mood.allCases.dropLast()
+    
+    @Binding var isPresented: Bool
 
     var body: some View {
         let columns = [
@@ -23,7 +26,7 @@ struct MoodSelectionGrid: View {
                 Button(action: {
                     
                 }, label: {
-                    Image("Icon=Close, State=Select, Bg Fill=False")
+                    Image(.iconCloseStateSelectBgFillFalse)
                 })
             }
             .padding()
@@ -36,11 +39,11 @@ struct MoodSelectionGrid: View {
         }
         .background(
             RoundedRectangle(cornerRadius: 20)
-                .fill(Color("neutrals_01"))
-                .stroke(Color("primary_02"), lineWidth: 1))
+                .fill(Color.neutrals01)
+                .stroke(Color.primary02, lineWidth: 1))
     }
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    MoodSelectionGrid()
+    MoodSelectionGrid(isPresented: .constant(true))
 }

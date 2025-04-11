@@ -33,12 +33,16 @@ struct AddPage: View {
             }
             
             HStack {
-                TextField("", text: $title, prompt: Text("Título")
-                    .foregroundStyle(Color.primary06))
-                    .font(Font.custom("BricolageGrotesque-ExtraBold", size: 42))
-                    .foregroundStyle(Color.primary06)
-                Spacer()
-                MoodPicker(action: {})
+                ZStack {
+                    HStack {
+                        TextField("", text: $title, prompt: Text("Título")
+                            .foregroundStyle(Color.primary06))
+                            .font(Font.custom("BricolageGrotesque-ExtraBold", size: 42))
+                            .foregroundStyle(Color.primary06)
+                        Spacer()
+                    }
+                    MoodPicker(action: {})
+                }
             }.padding(.vertical)
             
             ZStack {
