@@ -27,8 +27,9 @@
 		0BB60E582DA4485400ACA7E8 /* BricolageGrotesque-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E572DA4485400ACA7E8 /* BricolageGrotesque-ExtraBold.ttf */; };
 		0BB60E5A2DA450C400ACA7E8 /* DiaryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB60E592DA450BE00ACA7E8 /* DiaryPage.swift */; };
 		0BB60E5F2DA45F6400ACA7E8 /* PageColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */; };
+		0BCF74162DA847C500B0CA2A /* AddPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF74152DA847C500B0CA2A /* AddPage.swift */; };
 		0BFA68072DA6F36E000D382D /* MoodOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA68062DA6F36E000D382D /* MoodOption.swift */; };
-		0BFA68092DA70C75000D382D /* MoodSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA68082DA70C70000D382D /* MoodSelection.swift */; };
+		0BFA68092DA70C75000D382D /* MoodSelectionGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA68082DA70C70000D382D /* MoodSelectionGrid.swift */; };
 		345D99D22DA8549E00376BEB /* DashedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D99D12DA8549E00376BEB /* DashedCard.swift */; };
 		347A3BCD2D2D9E5B004243CE /* QueridoDiarioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BCC2D2D9E5B004243CE /* QueridoDiarioApp.swift */; };
 		347A3BCF2D2D9E5B004243CE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3BCE2D2D9E5B004243CE /* ContentView.swift */; };
@@ -78,8 +79,9 @@
 		0BB60E572DA4485400ACA7E8 /* BricolageGrotesque-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BricolageGrotesque-ExtraBold.ttf"; sourceTree = "<group>"; };
 		0BB60E592DA450BE00ACA7E8 /* DiaryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPage.swift; sourceTree = "<group>"; };
 		0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageColorPicker.swift; sourceTree = "<group>"; };
+		0BCF74152DA847C500B0CA2A /* AddPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPage.swift; sourceTree = "<group>"; };
 		0BFA68062DA6F36E000D382D /* MoodOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodOption.swift; sourceTree = "<group>"; };
-		0BFA68082DA70C70000D382D /* MoodSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSelection.swift; sourceTree = "<group>"; };
+		0BFA68082DA70C70000D382D /* MoodSelectionGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSelectionGrid.swift; sourceTree = "<group>"; };
 		345D99D12DA8549E00376BEB /* DashedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedCard.swift; sourceTree = "<group>"; };
 		347A3BC92D2D9E5B004243CE /* QueridoDiario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QueridoDiario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		347A3BCC2D2D9E5B004243CE /* QueridoDiarioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueridoDiarioApp.swift; sourceTree = "<group>"; };
@@ -143,7 +145,7 @@
 		0BB60E5B2DA45F2C00ACA7E8 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				0BFA68082DA70C70000D382D /* MoodSelection.swift */,
+				0BFA68082DA70C70000D382D /* MoodSelectionGrid.swift */,
 				0B5B12E52DA5992700B4A179 /* RoundedTabBar.swift */,
 				0B5B12DB2DA56B1300B4A179 /* ToolBar.swift */,
 				0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */,
@@ -222,6 +224,7 @@
 				0B5B12DF2DA57AFD00B4A179 /* HomeView.swift */,
 				0B5B12E12DA57B1C00B4A179 /* EntriesView.swift */,
 				0B5B12E32DA57B3300B4A179 /* SettingsView.swift */,
+				0BCF74152DA847C500B0CA2A /* AddPage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -403,8 +406,9 @@
 				347A3BCF2D2D9E5B004243CE /* ContentView.swift in Sources */,
 				0B97A1342DA82FBC003C005D /* MoodPicker.swift in Sources */,
 				0B5B12E42DA57B3300B4A179 /* SettingsView.swift in Sources */,
-				0BFA68092DA70C75000D382D /* MoodSelection.swift in Sources */,
+				0BFA68092DA70C75000D382D /* MoodSelectionGrid.swift in Sources */,
 				0B5B12E82DA5A8A500B4A179 /* Card.swift in Sources */,
+				0BCF74162DA847C500B0CA2A /* AddPage.swift in Sources */,
 				0B5B12DA2DA4694100B4A179 /* CustomButton.swift in Sources */,
 				0BB60E5F2DA45F6400ACA7E8 /* PageColorPicker.swift in Sources */,
 				0B5B12DC2DA56B1300B4A179 /* ToolBar.swift in Sources */,
@@ -575,7 +579,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"QueridoDiario/Resources/Preview Content\"";
-				DEVELOPMENT_TEAM = MT4A7M75NC;
+				DEVELOPMENT_TEAM = KDV83NBV8H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QueridoDiario/Info.plist;
@@ -590,7 +594,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = QueridoDiario.QueridoDiario;
+				PRODUCT_BUNDLE_IDENTIFIER = QueridoDiario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -606,7 +610,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"QueridoDiario/Resources/Preview Content\"";
-				DEVELOPMENT_TEAM = MT4A7M75NC;
+				DEVELOPMENT_TEAM = KDV83NBV8H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QueridoDiario/Info.plist;
@@ -621,7 +625,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = QueridoDiario.QueridoDiario;
+				PRODUCT_BUNDLE_IDENTIFIER = QueridoDiario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

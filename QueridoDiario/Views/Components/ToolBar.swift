@@ -24,7 +24,7 @@ struct ToolBar: View {
                         .asymmetric(
                             insertion: .push(from: .bottom),
                             removal: .push(from: .top))
-                    )
+                    ).background(Color.neutrals01)
             }
             HStack {
                 Spacer()
