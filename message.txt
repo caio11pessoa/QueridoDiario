@@ -1,0 +1,178 @@
+diff --git a/QueridoDiario.xcodeproj/project.pbxproj b/QueridoDiario.xcodeproj/project.pbxproj
+index 79a9ed3..d7597f7 100644
+--- a/QueridoDiario.xcodeproj/project.pbxproj
++++ b/QueridoDiario.xcodeproj/project.pbxproj
+@@ -29,6 +29,7 @@
+ 		0BB60E5F2DA45F6400ACA7E8 /* PageColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */; };
+ 		0BCF74162DA847C500B0CA2A /* AddPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF74152DA847C500B0CA2A /* AddPage.swift */; };
+ 		0BCF74292DA9954C00B0CA2A /* DiaryPageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF74282DA9954500B0CA2A /* DiaryPageRepository.swift */; };
++		0BCF742B2DADA0F900B0CA2A /* LogoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF742A2DADA0F900B0CA2A /* LogoHeader.swift */; };
+ 		0BFA68072DA6F36E000D382D /* MoodOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA68062DA6F36E000D382D /* MoodOption.swift */; };
+ 		0BFA68092DA70C75000D382D /* MoodSelectionGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA68082DA70C70000D382D /* MoodSelectionGrid.swift */; };
+ 		345D99D22DA8549E00376BEB /* DashedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D99D12DA8549E00376BEB /* DashedCard.swift */; };
+@@ -82,6 +83,7 @@
+ 		0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageColorPicker.swift; sourceTree = "<group>"; };
+ 		0BCF74152DA847C500B0CA2A /* AddPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPage.swift; sourceTree = "<group>"; };
+ 		0BCF74282DA9954500B0CA2A /* DiaryPageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPageRepository.swift; sourceTree = "<group>"; };
++		0BCF742A2DADA0F900B0CA2A /* LogoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoHeader.swift; sourceTree = "<group>"; };
+ 		0BFA68062DA6F36E000D382D /* MoodOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodOption.swift; sourceTree = "<group>"; };
+ 		0BFA68082DA70C70000D382D /* MoodSelectionGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSelectionGrid.swift; sourceTree = "<group>"; };
+ 		345D99D12DA8549E00376BEB /* DashedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedCard.swift; sourceTree = "<group>"; };
+@@ -156,6 +158,7 @@
+ 				0BFA68062DA6F36E000D382D /* MoodOption.swift */,
+ 				0B97A1332DA82FBC003C005D /* MoodPicker.swift */,
+ 				345D99D12DA8549E00376BEB /* DashedCard.swift */,
++				0BCF742A2DADA0F900B0CA2A /* LogoHeader.swift */,
+ 			);
+ 			path = Components;
+ 			sourceTree = "<group>";
+@@ -399,6 +402,7 @@
+ 			buildActionMask = 2147483647;
+ 			files = (
+ 				0B5B12E22DA57B1C00B4A179 /* EntriesView.swift in Sources */,
++				0BCF742B2DADA0F900B0CA2A /* LogoHeader.swift in Sources */,
+ 				0BFA68072DA6F36E000D382D /* MoodOption.swift in Sources */,
+ 				0B5B12E62DA5993200B4A179 /* RoundedTabBar.swift in Sources */,
+ 				0B5B12DE2DA56D8800B4A179 /* DeviceDimensions.swift in Sources */,
+diff --git a/QueridoDiario/Views/AddPage.swift b/QueridoDiario/Views/AddPage.swift
+index 8a5b98c..80df27b 100644
+--- a/QueridoDiario/Views/AddPage.swift
++++ b/QueridoDiario/Views/AddPage.swift
+@@ -19,10 +19,14 @@ struct AddPage: View {
+     
+     @State var color = PageColor.purple
+     
++    @Binding var isAddPagePresented: Bool
++    
+     var body: some View {
+         VStack {
+             HStack {
+-                Button(action: {}, label: {
++                Button(action: {
++                    isAddPagePresented.toggle()
++                }, label: {
+                     Text("Voltar")
+                 })
+                 Spacer()
+@@ -71,5 +75,5 @@ struct AddPage: View {
+ }
+ 
+ #Preview {
+-    AddPage()
++    AddPage(isAddPagePresented: .constant(true))
+ }
+diff --git a/QueridoDiario/Views/Components/LogoHeader.swift b/QueridoDiario/Views/Components/LogoHeader.swift
+index e615369..d2fb3e2 100644
+--- a/QueridoDiario/Views/Components/LogoHeader.swift
++++ b/QueridoDiario/Views/Components/LogoHeader.swift
+@@ -9,7 +9,13 @@ import SwiftUI
+ 
+ struct LogoHeader: View {
+     var body: some View {
+-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
++        HStack {
++            Image("Verdin")
++                .resizable()
++                .frame(width: 87.32, height: 55.71)
++            Spacer()
++        }
++        .padding()
+     }
+ }
+ 
+diff --git a/QueridoDiario/Views/ContentView.swift b/QueridoDiario/Views/ContentView.swift
+index cda8b94..2ff8fbb 100644
+--- a/QueridoDiario/Views/ContentView.swift
++++ b/QueridoDiario/Views/ContentView.swift
+@@ -11,26 +11,33 @@ struct ContentView: View {
+     
+     @State private var selectedTab = 0
+ 
++    @State var isAddPagePresented: Bool = false
+     
+     var body: some View {
+         GeometryReader { geometry in
+-            ZStack(alignment: .bottom) {
+-                Group {
+-                    switch selectedTab {
+-                    case 0: HomeView()
+-                    case 1: EntriesView()
+-                    case 2: SettingsView()
+-                    default: HomeView()
++            VStack {
++                ZStack(alignment: .bottom) {
++                    Group {
++                        switch selectedTab {
++                        case 0: HomeView(isAddPagePresented: $isAddPagePresented)
++                        case 1: EntriesView()
++                        case 2: SettingsView()
++                        default: HomeView(isAddPagePresented: $isAddPagePresented)
++                        }
+                     }
++                    .frame(maxWidth: .infinity, maxHeight: .infinity)
++                    .padding(.bottom, 90)
++                    
++                    RoundedTabBar(selectedTab: $selectedTab)
++                }
++                .ignoresSafeArea(.all, edges: .bottom)
++                .onAppear {
++                    DeviceDimensions.shared.setDimension(geometry: geometry)
+                 }
+-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+-                
+-                RoundedTabBar(selectedTab: $selectedTab)
+             }
+             .background(Color(.primary01))
+-            .ignoresSafeArea(.all, edges: .bottom)
+-            .onAppear {
+-                DeviceDimensions.shared.setDimension(geometry: geometry)
++            .fullScreenCover(isPresented: $isAddPagePresented) {
++                AddPage(isAddPagePresented: $isAddPagePresented)
+             }
+         }
+     }
+diff --git a/QueridoDiario/Views/HomeView.swift b/QueridoDiario/Views/HomeView.swift
+index c922405..bd21441 100644
+--- a/QueridoDiario/Views/HomeView.swift
++++ b/QueridoDiario/Views/HomeView.swift
+@@ -8,13 +8,37 @@
+ import SwiftUI
+ 
+ struct HomeView: View {
++    
++    @Binding var isAddPagePresented: Bool
++    
+     var body: some View {
+-        VStack {
+-            Text("Home")
++        NavigationView {
++            VStack(alignment: .leading) {
++                DashedCard {
++                    VStack {
++                        Text("Esceva seu registro de hoje")
++                        CustomButton(
++                            action: {
++                                isAddPagePresented.toggle()
++                            },
++                            buttonColor: .purple,
++                            buttonStyle: ButtonType.plusIcon("Adicionar Página", .purple)
++                        )
++                    }.padding(.vertical)
++                }
++                Text("Recentes")
++                    .font(Font.custom("BricolageGrotesque-ExtraBold", size: 24))
++                    .foregroundStyle(Color.primary06)
++                ScrollView {
++                    Card(entry: DiaryPage(title: "Sonho", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", mood: Mood.maligno, color: PageColor.pink), formatedDate: DateFormatterHelper.shared.format(date: Date()))
++                }
++            }
++            .background(Color.primary01)
++            .padding()
+         }
+     }
+ }
+ 
+ #Preview {
+-    HomeView()
++    HomeView(isAddPagePresented: .constant(false))
+ }

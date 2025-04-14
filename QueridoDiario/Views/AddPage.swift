@@ -19,10 +19,14 @@ struct AddPage: View {
     
     @State var color = PageColor.purple
     
+    @Binding var isAddPagePresented: Bool
+    
     var body: some View {
         VStack {
             HStack {
-                Button(action: {}, label: {
+                Button(action: {
+                    isAddPagePresented.toggle()
+                }, label: {
                     Text("Voltar")
                 })
                 Spacer()
@@ -71,5 +75,5 @@ struct AddPage: View {
 }
 
 #Preview {
-    AddPage()
+    AddPage(isAddPagePresented: .constant(true))
 }
