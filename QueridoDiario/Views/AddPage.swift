@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AddPage: View {
     
+    @Environment(\.modelContext) var context
+    
     @State var title = ""
     
     @State var content = ""
@@ -27,7 +29,11 @@ struct AddPage: View {
                 Text("Adicionar página")
                     .bold()
                 Spacer()
-                Button(action: {}, label: {
+                Button(action: {
+                    let repository = DiaryPageRepository(context: context)
+                    
+                    let _ = repository.createDiaryPage(title: title, content: content, mood: mood, color: color)
+                }, label: {
                     Text("Salvar")
                 })
             }
