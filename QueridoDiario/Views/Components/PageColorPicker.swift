@@ -9,7 +9,8 @@ import SwiftUI
 
 struct PageColorPicker: View {
     
-    @State var selectedColor: PageColor = .white
+    @ObservedObject var viewModel = AddPageViewModel.shared
+    
     @Binding var isPresented: Bool
     
     var body: some View {
@@ -26,16 +27,19 @@ struct PageColorPicker: View {
             
             HStack {
                 RoundedRectangle(cornerSize: CGSize(width: 8, height: 8))
-                    .fill(selectedColor.selected)
+                    .fill(viewModel.color.selected)
                     .frame(maxWidth: 60, maxHeight: 60)
                     .overlay(
                         RoundedRectangle(cornerSize: CGSize(width: 8, height: 8))
-                            .stroke(Color(.primary02), lineWidth: selectedColor == PageColor.white ? 2 : 0)
+                            .stroke(Color(.primary02), lineWidth: viewModel.color == PageColor.white ? 2 : 0)
                     )
                 
                 ForEach(PageColor.allCases, id: \.self) { color in
                     Spacer()
-                    ColorOption(selectedColor: $selectedColor, color: color)
+                    ColorOption(selectedColor: $viewModel.color, color: color)
+                        .onTapGesture {
+                            viewModel.color = color
+                        }
                 }
             }
         }
@@ -47,9 +51,9 @@ struct PageColorPicker: View {
     }
 }
 
-#Preview(traits: .sizeThatFitsLayout) {
-    PageColorPicker(isPresented: .constant(true))
-}
+//#Preview(traits: .sizeThatFitsLayout) {
+//    PageColorPicker(isPresented: .constant(true))
+//}
 
 struct ColorOption: View {
     

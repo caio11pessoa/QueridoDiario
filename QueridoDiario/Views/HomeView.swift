@@ -6,10 +6,15 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HomeView: View {
     
+//    @Environment(\.modelContext) var context
+    
     @Binding var isAddPagePresented: Bool
+    
+    @Query var pages: [DiaryPage]
     
     var body: some View {
         NavigationView {
@@ -30,7 +35,9 @@ struct HomeView: View {
                     .font(Font.custom("BricolageGrotesque-ExtraBold", size: 24))
                     .foregroundStyle(Color.primary06)
                 ScrollView {
-                    Card(entry: DiaryPage(title: "Sonho", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", mood: Mood.maligno, color: PageColor.pink), formatedDate: DateFormatterHelper.shared.format(date: Date()))
+                    ForEach(pages) {page in
+                        Card(entry: page, formatedDate: DateFormatterHelper.shared.format(date: page.createdAt))
+                    }
                 }
             }
             .background(Color.primary01)

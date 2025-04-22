@@ -63,6 +63,21 @@ enum PageColor: Codable, CaseIterable {
         }
     }
     
+    var background: Color {
+        switch self {
+        case .blue:
+            return Color("tertiary_01")
+        case .pink:
+            return Color("secondary_01")
+        case .purple:
+            return Color("primary_01")
+        case .green:
+            return Color("quaternary_01")
+        case .white:
+            return Color("neutrals_01")
+        }
+    }
+    
 }
 
 enum Mood: Codable, CaseIterable {

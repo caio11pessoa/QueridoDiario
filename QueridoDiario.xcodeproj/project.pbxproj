@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B521A252DB8275400BBD291 /* AddPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B521A242DB8274C00BBD291 /* AddPageViewModel.swift */; };
 		0B5B12DA2DA4694100B4A179 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12D92DA4694100B4A179 /* CustomButton.swift */; };
 		0B5B12DC2DA56B1300B4A179 /* ToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12DB2DA56B1300B4A179 /* ToolBar.swift */; };
 		0B5B12DE2DA56D8800B4A179 /* DeviceDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12DD2DA56D7F00B4A179 /* DeviceDimensions.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B521A242DB8274C00BBD291 /* AddPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPageViewModel.swift; sourceTree = "<group>"; };
 		0B5B12D92DA4694100B4A179 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		0B5B12DB2DA56B1300B4A179 /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
 		0B5B12DD2DA56D7F00B4A179 /* DeviceDimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDimensions.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 		34FC5EB72D302B8400048049 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				0B521A242DB8274C00BBD291 /* AddPageViewModel.swift */,
 				0B5B12E92DA5B43300B4A179 /* DateFormatterHelper.swift */,
 				0B5B12DD2DA56D7F00B4A179 /* DeviceDimensions.swift */,
 			);
@@ -411,6 +414,7 @@
 				0BB60E5A2DA450C400ACA7E8 /* DiaryPage.swift in Sources */,
 				345D99D22DA8549E00376BEB /* DashedCard.swift in Sources */,
 				0B5B12EA2DA5B43800B4A179 /* DateFormatterHelper.swift in Sources */,
+				0B521A252DB8275400BBD291 /* AddPageViewModel.swift in Sources */,
 				347A3BCF2D2D9E5B004243CE /* ContentView.swift in Sources */,
 				0B97A1342DA82FBC003C005D /* MoodPicker.swift in Sources */,
 				0B5B12E42DA57B3300B4A179 /* SettingsView.swift in Sources */,

@@ -6,20 +6,20 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AddPage: View {
     
     @Environment(\.modelContext) var context
     
-    @State var title = ""
-    
-    @State var content = ""
-    
-    @State var mood = Mood.empty
-    
-    @State var color = PageColor.purple
+    @StateObject private var viewModel: AddPageViewModel
     
     @Binding var isAddPagePresented: Bool
+    
+    init(isAddPagePresented: Binding<Bool>) {
+            self._isAddPagePresented = isAddPagePresented
+        self._viewModel = StateObject(wrappedValue: AddPageViewModel.shared)
+        }
     
     var body: some View {
         VStack {
@@ -34,9 +34,8 @@ struct AddPage: View {
                     .bold()
                 Spacer()
                 Button(action: {
-                    let repository = DiaryPageRepository(context: context)
-                    
-                    let _ = repository.createDiaryPage(title: title, content: content, mood: mood, color: color)
+                    viewModel.saveDiaryPage()
+                    isAddPagePresented.toggle()
                 }, label: {
                     Text("Salvar")
                 })
@@ -45,19 +44,20 @@ struct AddPage: View {
             HStack {
                 ZStack {
                     HStack {
-                        TextField("", text: $title, prompt: Text("Título")
+                        TextField("", text: $viewModel.title, prompt: Text("Título")
                             .foregroundStyle(Color.primary06))
                             .font(Font.custom("BricolageGrotesque-ExtraBold", size: 42))
                             .foregroundStyle(Color.primary06)
                         Spacer()
                     }
-                    MoodPicker(action: {})
+                    MoodPicker()
+                    
                 }
             }.padding(.vertical)
             
             ZStack {
                 VStack {
-                    TextField("", text: $content,
+                    TextField("", text: $viewModel.content,
                               prompt: Text("Como foi seu dia?")
                                   .foregroundStyle(Color.primary06),
                               axis: .vertical)
@@ -70,10 +70,10 @@ struct AddPage: View {
             }
         }
         .padding()
-        .background(Color.primary01)
+        .background(viewModel.color.background)
     }
 }
 
-#Preview {
-    AddPage(isAddPagePresented: .constant(true))
-}
+//#Preview {
+//    AddPage(isAddPagePresented: .constant(true))
+//}
