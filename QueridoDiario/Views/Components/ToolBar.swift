@@ -52,8 +52,8 @@ struct ToolBar: View {
     }
 }
 
-#Preview(traits: .sizeThatFitsLayout) {
-    ToolBar()
-        .ignoresSafeArea()
-        .padding()
-}
+//#Preview(traits: .sizeThatFitsLayout) {
+//    ToolBar()
+//        .ignoresSafeArea()
+//        .padding()
+//}

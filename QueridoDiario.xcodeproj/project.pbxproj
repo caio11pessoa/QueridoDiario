@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B521A252DB8275400BBD291 /* AddPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B521A242DB8274C00BBD291 /* AddPageViewModel.swift */; };
 		0B5B12DA2DA4694100B4A179 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12D92DA4694100B4A179 /* CustomButton.swift */; };
 		0B5B12DC2DA56B1300B4A179 /* ToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12DB2DA56B1300B4A179 /* ToolBar.swift */; };
 		0B5B12DE2DA56D8800B4A179 /* DeviceDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12DD2DA56D7F00B4A179 /* DeviceDimensions.swift */; };
@@ -29,6 +30,7 @@
 		0BB60E5F2DA45F6400ACA7E8 /* PageColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */; };
 		0BCF74162DA847C500B0CA2A /* AddPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF74152DA847C500B0CA2A /* AddPage.swift */; };
 		0BCF74292DA9954C00B0CA2A /* DiaryPageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF74282DA9954500B0CA2A /* DiaryPageRepository.swift */; };
+		0BCF742B2DADA0F900B0CA2A /* LogoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF742A2DADA0F900B0CA2A /* LogoHeader.swift */; };
 		0BFA68072DA6F36E000D382D /* MoodOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA68062DA6F36E000D382D /* MoodOption.swift */; };
 		0BFA68092DA70C75000D382D /* MoodSelectionGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA68082DA70C70000D382D /* MoodSelectionGrid.swift */; };
 		345D99D22DA8549E00376BEB /* DashedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D99D12DA8549E00376BEB /* DashedCard.swift */; };
@@ -59,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B521A242DB8274C00BBD291 /* AddPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPageViewModel.swift; sourceTree = "<group>"; };
 		0B5B12D92DA4694100B4A179 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		0B5B12DB2DA56B1300B4A179 /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
 		0B5B12DD2DA56D7F00B4A179 /* DeviceDimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDimensions.swift; sourceTree = "<group>"; };
@@ -82,6 +85,7 @@
 		0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageColorPicker.swift; sourceTree = "<group>"; };
 		0BCF74152DA847C500B0CA2A /* AddPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPage.swift; sourceTree = "<group>"; };
 		0BCF74282DA9954500B0CA2A /* DiaryPageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPageRepository.swift; sourceTree = "<group>"; };
+		0BCF742A2DADA0F900B0CA2A /* LogoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoHeader.swift; sourceTree = "<group>"; };
 		0BFA68062DA6F36E000D382D /* MoodOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodOption.swift; sourceTree = "<group>"; };
 		0BFA68082DA70C70000D382D /* MoodSelectionGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSelectionGrid.swift; sourceTree = "<group>"; };
 		345D99D12DA8549E00376BEB /* DashedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedCard.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				0BFA68062DA6F36E000D382D /* MoodOption.swift */,
 				0B97A1332DA82FBC003C005D /* MoodPicker.swift */,
 				345D99D12DA8549E00376BEB /* DashedCard.swift */,
+				0BCF742A2DADA0F900B0CA2A /* LogoHeader.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 		34FC5EB72D302B8400048049 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				0B521A242DB8274C00BBD291 /* AddPageViewModel.swift */,
 				0B5B12E92DA5B43300B4A179 /* DateFormatterHelper.swift */,
 				0B5B12DD2DA56D7F00B4A179 /* DeviceDimensions.swift */,
 			);
@@ -399,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B5B12E22DA57B1C00B4A179 /* EntriesView.swift in Sources */,
+				0BCF742B2DADA0F900B0CA2A /* LogoHeader.swift in Sources */,
 				0BFA68072DA6F36E000D382D /* MoodOption.swift in Sources */,
 				0B5B12E62DA5993200B4A179 /* RoundedTabBar.swift in Sources */,
 				0B5B12DE2DA56D8800B4A179 /* DeviceDimensions.swift in Sources */,
@@ -407,6 +414,7 @@
 				0BB60E5A2DA450C400ACA7E8 /* DiaryPage.swift in Sources */,
 				345D99D22DA8549E00376BEB /* DashedCard.swift in Sources */,
 				0B5B12EA2DA5B43800B4A179 /* DateFormatterHelper.swift in Sources */,
+				0B521A252DB8275400BBD291 /* AddPageViewModel.swift in Sources */,
 				347A3BCF2D2D9E5B004243CE /* ContentView.swift in Sources */,
 				0B97A1342DA82FBC003C005D /* MoodPicker.swift in Sources */,
 				0B5B12E42DA57B3300B4A179 /* SettingsView.swift in Sources */,

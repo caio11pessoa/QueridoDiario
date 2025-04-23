@@ -11,26 +11,33 @@ struct ContentView: View {
     
     @State private var selectedTab = 0
 
+    @State var isAddPagePresented: Bool = false
     
     var body: some View {
         GeometryReader { geometry in
-            ZStack(alignment: .bottom) {
-                Group {
-                    switch selectedTab {
-                    case 0: HomeView()
-                    case 1: EntriesView()
-                    case 2: SettingsView()
-                    default: HomeView()
+            VStack {
+                ZStack(alignment: .bottom) {
+                    Group {
+                        switch selectedTab {
+                        case 0: HomeView(isAddPagePresented: $isAddPagePresented)
+                        case 1: EntriesView()
+                        case 2: SettingsView()
+                        default: HomeView(isAddPagePresented: $isAddPagePresented)
+                        }
                     }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding(.bottom, 90)
+                    
+                    RoundedTabBar(selectedTab: $selectedTab)
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                
-                RoundedTabBar(selectedTab: $selectedTab)
+                .ignoresSafeArea(.all, edges: .bottom)
+                .onAppear {
+                    DeviceDimensions.shared.setDimension(geometry: geometry)
+                }
             }
             .background(Color(.primary01))
-            .ignoresSafeArea(.all, edges: .bottom)
-            .onAppear {
-                DeviceDimensions.shared.setDimension(geometry: geometry)
+            .fullScreenCover(isPresented: $isAddPagePresented) {
+                AddPage(isAddPagePresented: $isAddPagePresented)
             }
         }
     }

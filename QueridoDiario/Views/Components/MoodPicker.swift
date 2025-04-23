@@ -9,9 +9,7 @@ import SwiftUI
 
 struct MoodPicker: View {
     
-    var mood: Mood = Mood.empty
-    
-    var action: () -> Void = {}
+    @ObservedObject var viewModel = AddPageViewModel.shared
     
     @State var isSelected = false
     
@@ -25,7 +23,7 @@ struct MoodPicker: View {
                     }
                 }, label: {
                     VStack {
-                        mood.emote
+                        viewModel.mood.emote
                             .resizable()
                             .frame(width: 59.44, height: 59.44)
                         Text("Humor")
@@ -40,8 +38,4 @@ struct MoodPicker: View {
             }
         }
     }
-}
-
-#Preview(traits: .sizeThatFitsLayout) {
-    MoodPicker()
 }

@@ -12,6 +12,8 @@ struct MoodSelectionGrid: View {
     let moodOptions = Mood.allCases.dropLast()
     
     @Binding var isPresented: Bool
+    
+    @ObservedObject var viewModel = AddPageViewModel.shared
 
     var body: some View {
         let columns = [
@@ -24,7 +26,7 @@ struct MoodSelectionGrid: View {
                     .font(Font.custom("BricolageGrotesque-SemiBold", size: 14.5))
                 Spacer()
                 Button(action: {
-                    
+                    isPresented.toggle()
                 }, label: {
                     Image(.iconCloseStateSelectBgFillFalse)
                 })
@@ -32,7 +34,10 @@ struct MoodSelectionGrid: View {
             .padding()
             LazyVGrid(columns: columns, spacing: 16) {
                 ForEach(moodOptions, id: \.self) { mood in
-                    MoodOption(mood: mood)
+                    MoodOption(mood: mood, selectedMood: $viewModel.mood)
+                        .onTapGesture {
+                            viewModel.mood = mood
+                        }
                 }
             }
             .padding()
@@ -42,8 +47,4 @@ struct MoodSelectionGrid: View {
                 .fill(Color.neutrals01)
                 .stroke(Color.primary02, lineWidth: 1))
     }
-}
-
-#Preview(traits: .sizeThatFitsLayout) {
-    MoodSelectionGrid(isPresented: .constant(true))
 }

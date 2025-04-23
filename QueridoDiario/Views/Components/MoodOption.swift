@@ -9,12 +9,14 @@ import SwiftUI
 
 struct MoodOption: View {
     
-    var mood: Mood = Mood.maligno
+    var mood: Mood
     
-    var action: () -> Void = {}
+    @Binding var selectedMood: Mood
     
     var body: some View {
-        Button(action: action, label: {
+        Button(action: {
+            selectedMood = mood
+        }, label: {
             ZStack {
                 Circle()
                     .fill(Color("primary_02"))
@@ -27,6 +29,6 @@ struct MoodOption: View {
     }
 }
 
-#Preview(traits: .sizeThatFitsLayout) {
-    MoodOption()
-}
+//#Preview(traits: .sizeThatFitsLayout) {
+//    MoodOption()
+//}

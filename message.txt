@@ -1,0 +1,588 @@
+diff --git a/QueridoDiario.xcodeproj/project.pbxproj b/QueridoDiario.xcodeproj/project.pbxproj
+index d7597f7..6f6344d 100644
+--- a/QueridoDiario.xcodeproj/project.pbxproj
++++ b/QueridoDiario.xcodeproj/project.pbxproj
+@@ -7,6 +7,7 @@
+ 	objects = {
+ 
+ /* Begin PBXBuildFile section */
++		0B521A252DB8275400BBD291 /* AddPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B521A242DB8274C00BBD291 /* AddPageViewModel.swift */; };
+ 		0B5B12DA2DA4694100B4A179 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12D92DA4694100B4A179 /* CustomButton.swift */; };
+ 		0B5B12DC2DA56B1300B4A179 /* ToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12DB2DA56B1300B4A179 /* ToolBar.swift */; };
+ 		0B5B12DE2DA56D8800B4A179 /* DeviceDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12DD2DA56D7F00B4A179 /* DeviceDimensions.swift */; };
+@@ -60,6 +61,7 @@
+ /* End PBXContainerItemProxy section */
+ 
+ /* Begin PBXFileReference section */
++		0B521A242DB8274C00BBD291 /* AddPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPageViewModel.swift; sourceTree = "<group>"; };
+ 		0B5B12D92DA4694100B4A179 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+ 		0B5B12DB2DA56B1300B4A179 /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
+ 		0B5B12DD2DA56D7F00B4A179 /* DeviceDimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDimensions.swift; sourceTree = "<group>"; };
+@@ -246,6 +248,7 @@
+ 		34FC5EB72D302B8400048049 /* ViewModels */ = {
+ 			isa = PBXGroup;
+ 			children = (
++				0B521A242DB8274C00BBD291 /* AddPageViewModel.swift */,
+ 				0B5B12E92DA5B43300B4A179 /* DateFormatterHelper.swift */,
+ 				0B5B12DD2DA56D7F00B4A179 /* DeviceDimensions.swift */,
+ 			);
+@@ -411,6 +414,7 @@
+ 				0BB60E5A2DA450C400ACA7E8 /* DiaryPage.swift in Sources */,
+ 				345D99D22DA8549E00376BEB /* DashedCard.swift in Sources */,
+ 				0B5B12EA2DA5B43800B4A179 /* DateFormatterHelper.swift in Sources */,
++				0B521A252DB8275400BBD291 /* AddPageViewModel.swift in Sources */,
+ 				347A3BCF2D2D9E5B004243CE /* ContentView.swift in Sources */,
+ 				0B97A1342DA82FBC003C005D /* MoodPicker.swift in Sources */,
+ 				0B5B12E42DA57B3300B4A179 /* SettingsView.swift in Sources */,
+diff --git a/QueridoDiario/Models/DiaryPage.swift b/QueridoDiario/Models/DiaryPage.swift
+index adcdb5b..81db414 100644
+--- a/QueridoDiario/Models/DiaryPage.swift
++++ b/QueridoDiario/Models/DiaryPage.swift
+@@ -63,6 +63,21 @@ enum PageColor: Codable, CaseIterable {
+         }
+     }
+     
++    var background: Color {
++        switch self {
++        case .blue:
++            return Color("tertiary_01")
++        case .pink:
++            return Color("secondary_01")
++        case .purple:
++            return Color("primary_01")
++        case .green:
++            return Color("quaternary_01")
++        case .white:
++            return Color("neutrals_01")
++        }
++    }
++    
+ }
+ 
+ enum Mood: Codable, CaseIterable {
+diff --git a/QueridoDiario/QueridoDiarioApp.swift b/QueridoDiario/QueridoDiarioApp.swift
+index 912ac4a..fb2848e 100644
+--- a/QueridoDiario/QueridoDiarioApp.swift
++++ b/QueridoDiario/QueridoDiarioApp.swift
+@@ -24,6 +24,7 @@ struct QueridoDiarioApp: App {
+     }()
+     
+     init() {
++        AddPageViewModel.shared.initialize(context: sharedModelContainer.mainContext)
+         setupTabBarAppearance()
+     }
+ 
+diff --git a/QueridoDiario/ViewModels/AddPageViewModel.swift b/QueridoDiario/ViewModels/AddPageViewModel.swift
+index e69de29..26b7e10 100644
+--- a/QueridoDiario/ViewModels/AddPageViewModel.swift
++++ b/QueridoDiario/ViewModels/AddPageViewModel.swift
+@@ -0,0 +1,36 @@
++//
++//  AddPageViewModel.swift
++//  QueridoDiario
++//
++//  Created by Lais Godinho on 22/04/25.
++//
++
++import SwiftUI
++import SwiftData
++
++class AddPageViewModel: ObservableObject {
++    @Published var title: String = ""
++    @Published var content: String = ""
++    @Published var mood: Mood = .empty
++    @Published var color: PageColor = .purple
++
++    private var repository: DiaryPageRepository?
++
++    static let shared = AddPageViewModel()
++   
++    private init() {}
++   
++    func initialize(context: ModelContext) {
++       self.repository = DiaryPageRepository(context: context)
++    }
++   
++
++    func saveDiaryPage() {
++        guard let repository = repository, !title.isEmpty, !content.isEmpty else {
++                    print("Title and content cannot be empty or repository is not initialized.")
++                    return
++                }
++    
++        let _ = repository.createDiaryPage(title: title, content: content, mood: mood, color: color)
++    }
++}
+diff --git a/QueridoDiario/Views/AddPage.swift b/QueridoDiario/Views/AddPage.swift
+index 80df27b..68fbde3 100644
+--- a/QueridoDiario/Views/AddPage.swift
++++ b/QueridoDiario/Views/AddPage.swift
+@@ -6,21 +6,21 @@
+ //
+ 
+ import SwiftUI
++import SwiftData
+ 
+ struct AddPage: View {
+     
+     @Environment(\.modelContext) var context
+     
+-    @State var title = ""
+-    
+-    @State var content = ""
+-    
+-    @State var mood = Mood.empty
+-    
+-    @State var color = PageColor.purple
++    @StateObject private var viewModel: AddPageViewModel
+     
+     @Binding var isAddPagePresented: Bool
+     
++    init(isAddPagePresented: Binding<Bool>) {
++            self._isAddPagePresented = isAddPagePresented
++        self._viewModel = StateObject(wrappedValue: AddPageViewModel.shared)
++        }
++    
+     var body: some View {
+         VStack {
+             HStack {
+@@ -34,9 +34,8 @@ struct AddPage: View {
+                     .bold()
+                 Spacer()
+                 Button(action: {
+-                    let repository = DiaryPageRepository(context: context)
+-                    
+-                    let _ = repository.createDiaryPage(title: title, content: content, mood: mood, color: color)
++                    viewModel.saveDiaryPage()
++                    isAddPagePresented.toggle()
+                 }, label: {
+                     Text("Salvar")
+                 })
+@@ -45,19 +44,20 @@ struct AddPage: View {
+             HStack {
+                 ZStack {
+                     HStack {
+-                        TextField("", text: $title, prompt: Text("Título")
++                        TextField("", text: $viewModel.title, prompt: Text("Título")
+                             .foregroundStyle(Color.primary06))
+                             .font(Font.custom("BricolageGrotesque-ExtraBold", size: 42))
+                             .foregroundStyle(Color.primary06)
+                         Spacer()
+                     }
+-                    MoodPicker(action: {})
++                    MoodPicker()
++                    
+                 }
+             }.padding(.vertical)
+             
+             ZStack {
+                 VStack {
+-                    TextField("", text: $content,
++                    TextField("", text: $viewModel.content,
+                               prompt: Text("Como foi seu dia?")
+                                   .foregroundStyle(Color.primary06),
+                               axis: .vertical)
+@@ -70,10 +70,10 @@ struct AddPage: View {
+             }
+         }
+         .padding()
+-        .background(Color.primary01)
++        .background(viewModel.color.background)
+     }
+ }
+ 
+-#Preview {
+-    AddPage(isAddPagePresented: .constant(true))
+-}
++//#Preview {
++//    AddPage(isAddPagePresented: .constant(true))
++//}
+diff --git a/QueridoDiario/Views/Components/MoodOption.swift b/QueridoDiario/Views/Components/MoodOption.swift
+index 85aafa6..385c7b8 100644
+--- a/QueridoDiario/Views/Components/MoodOption.swift
++++ b/QueridoDiario/Views/Components/MoodOption.swift
+@@ -9,12 +9,14 @@ import SwiftUI
+ 
+ struct MoodOption: View {
+     
+-    var mood: Mood = Mood.maligno
++    var mood: Mood
+     
+-    var action: () -> Void = {}
++    @Binding var selectedMood: Mood
+     
+     var body: some View {
+-        Button(action: action, label: {
++        Button(action: {
++            selectedMood = mood
++        }, label: {
+             ZStack {
+                 Circle()
+                     .fill(Color("primary_02"))
+@@ -27,6 +29,6 @@ struct MoodOption: View {
+     }
+ }
+ 
+-#Preview(traits: .sizeThatFitsLayout) {
+-    MoodOption()
+-}
++//#Preview(traits: .sizeThatFitsLayout) {
++//    MoodOption()
++//}
+diff --git a/QueridoDiario/Views/Components/MoodPicker.swift b/QueridoDiario/Views/Components/MoodPicker.swift
+index 8c4239c..f307711 100644
+--- a/QueridoDiario/Views/Components/MoodPicker.swift
++++ b/QueridoDiario/Views/Components/MoodPicker.swift
+@@ -9,9 +9,7 @@ import SwiftUI
+ 
+ struct MoodPicker: View {
+     
+-    var mood: Mood = Mood.empty
+-    
+-    var action: () -> Void = {}
++    @ObservedObject var viewModel = AddPageViewModel.shared
+     
+     @State var isSelected = false
+     
+@@ -25,7 +23,7 @@ struct MoodPicker: View {
+                     }
+                 }, label: {
+                     VStack {
+-                        mood.emote
++                        viewModel.mood.emote
+                             .resizable()
+                             .frame(width: 59.44, height: 59.44)
+                         Text("Humor")
+@@ -41,7 +39,3 @@ struct MoodPicker: View {
+         }
+     }
+ }
+-
+-#Preview(traits: .sizeThatFitsLayout) {
+-    MoodPicker()
+-}
+diff --git a/QueridoDiario/Views/Components/MoodSelectionGrid.swift b/QueridoDiario/Views/Components/MoodSelectionGrid.swift
+index 83a6ad9..5e38285 100644
+--- a/QueridoDiario/Views/Components/MoodSelectionGrid.swift
++++ b/QueridoDiario/Views/Components/MoodSelectionGrid.swift
+@@ -12,6 +12,8 @@ struct MoodSelectionGrid: View {
+     let moodOptions = Mood.allCases.dropLast()
+     
+     @Binding var isPresented: Bool
++    
++    @ObservedObject var viewModel = AddPageViewModel.shared
+ 
+     var body: some View {
+         let columns = [
+@@ -24,7 +26,7 @@ struct MoodSelectionGrid: View {
+                     .font(Font.custom("BricolageGrotesque-SemiBold", size: 14.5))
+                 Spacer()
+                 Button(action: {
+-                    
++                    isPresented.toggle()
+                 }, label: {
+                     Image(.iconCloseStateSelectBgFillFalse)
+                 })
+@@ -32,7 +34,10 @@ struct MoodSelectionGrid: View {
+             .padding()
+             LazyVGrid(columns: columns, spacing: 16) {
+                 ForEach(moodOptions, id: \.self) { mood in
+-                    MoodOption(mood: mood)
++                    MoodOption(mood: mood, selectedMood: $viewModel.mood)
++                        .onTapGesture {
++                            viewModel.mood = mood
++                        }
+                 }
+             }
+             .padding()
+@@ -43,7 +48,3 @@ struct MoodSelectionGrid: View {
+                 .stroke(Color.primary02, lineWidth: 1))
+     }
+ }
+-
+-#Preview(traits: .sizeThatFitsLayout) {
+-    MoodSelectionGrid(isPresented: .constant(true))
+-}
+diff --git a/QueridoDiario/Views/Components/PageColorPicker.swift b/QueridoDiario/Views/Components/PageColorPicker.swift
+index 32cd179..8f22948 100644
+--- a/QueridoDiario/Views/Components/PageColorPicker.swift
++++ b/QueridoDiario/Views/Components/PageColorPicker.swift
+@@ -9,7 +9,8 @@ import SwiftUI
+ 
+ struct PageColorPicker: View {
+     
+-    @State var selectedColor: PageColor = .white
++    @ObservedObject var viewModel = AddPageViewModel.shared
++    
+     @Binding var isPresented: Bool
+     
+     var body: some View {
+@@ -26,16 +27,19 @@ struct PageColorPicker: View {
+             
+             HStack {
+                 RoundedRectangle(cornerSize: CGSize(width: 8, height: 8))
+-                    .fill(selectedColor.selected)
++                    .fill(viewModel.color.selected)
+                     .frame(maxWidth: 60, maxHeight: 60)
+                     .overlay(
+                         RoundedRectangle(cornerSize: CGSize(width: 8, height: 8))
+-                            .stroke(Color(.primary02), lineWidth: selectedColor == PageColor.white ? 2 : 0)
++                            .stroke(Color(.primary02), lineWidth: viewModel.color == PageColor.white ? 2 : 0)
+                     )
+                 
+                 ForEach(PageColor.allCases, id: \.self) { color in
+                     Spacer()
+-                    ColorOption(selectedColor: $selectedColor, color: color)
++                    ColorOption(selectedColor: $viewModel.color, color: color)
++                        .onTapGesture {
++                            viewModel.color = color
++                        }
+                 }
+             }
+         }
+@@ -47,9 +51,9 @@ struct PageColorPicker: View {
+     }
+ }
+ 
+-#Preview(traits: .sizeThatFitsLayout) {
+-    PageColorPicker(isPresented: .constant(true))
+-}
++//#Preview(traits: .sizeThatFitsLayout) {
++//    PageColorPicker(isPresented: .constant(true))
++//}
+ 
+ struct ColorOption: View {
+     
+diff --git a/QueridoDiario/Views/Components/ToolBar.swift b/QueridoDiario/Views/Components/ToolBar.swift
+index 4bccaf6..cc56ba3 100644
+--- a/QueridoDiario/Views/Components/ToolBar.swift
++++ b/QueridoDiario/Views/Components/ToolBar.swift
+@@ -52,8 +52,8 @@ struct ToolBar: View {
+     }
+ }
+ 
+-#Preview(traits: .sizeThatFitsLayout) {
+-    ToolBar()
+-        .ignoresSafeArea()
+-        .padding()
+-}
++//#Preview(traits: .sizeThatFitsLayout) {
++//    ToolBar()
++//        .ignoresSafeArea()
++//        .padding()
++//}
+diff --git a/QueridoDiario/Views/HomeView.swift b/QueridoDiario/Views/HomeView.swift
+index bd21441..737fc5e 100644
+--- a/QueridoDiario/Views/HomeView.swift
++++ b/QueridoDiario/Views/HomeView.swift
+@@ -6,11 +6,16 @@
+ //
+ 
+ import SwiftUI
++import SwiftData
+ 
+ struct HomeView: View {
+     
++//    @Environment(\.modelContext) var context
++    
+     @Binding var isAddPagePresented: Bool
+     
++    @Query var pages: [DiaryPage]
++    
+     var body: some View {
+         NavigationView {
+             VStack(alignment: .leading) {
+@@ -30,7 +35,9 @@ struct HomeView: View {
+                     .font(Font.custom("BricolageGrotesque-ExtraBold", size: 24))
+                     .foregroundStyle(Color.primary06)
+                 ScrollView {
+-                    Card(entry: DiaryPage(title: "Sonho", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", mood: Mood.maligno, color: PageColor.pink), formatedDate: DateFormatterHelper.shared.format(date: Date()))
++                    ForEach(pages) {page in
++                        Card(entry: page, formatedDate: DateFormatterHelper.shared.format(date: page.createdAt))
++                    }
+                 }
+             }
+             .background(Color.primary01)
+diff --git a/message.txt b/message.txt
+index d933b20..31bd35d 100644
+--- a/message.txt
++++ b/message.txt
+@@ -1,178 +0,0 @@
+-diff --git a/QueridoDiario.xcodeproj/project.pbxproj b/QueridoDiario.xcodeproj/project.pbxproj
+-index 79a9ed3..d7597f7 100644
+---- a/QueridoDiario.xcodeproj/project.pbxproj
+-+++ b/QueridoDiario.xcodeproj/project.pbxproj
+-@@ -29,6 +29,7 @@
+- 		0BB60E5F2DA45F6400ACA7E8 /* PageColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */; };
+- 		0BCF74162DA847C500B0CA2A /* AddPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF74152DA847C500B0CA2A /* AddPage.swift */; };
+- 		0BCF74292DA9954C00B0CA2A /* DiaryPageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF74282DA9954500B0CA2A /* DiaryPageRepository.swift */; };
+-+		0BCF742B2DADA0F900B0CA2A /* LogoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF742A2DADA0F900B0CA2A /* LogoHeader.swift */; };
+- 		0BFA68072DA6F36E000D382D /* MoodOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA68062DA6F36E000D382D /* MoodOption.swift */; };
+- 		0BFA68092DA70C75000D382D /* MoodSelectionGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA68082DA70C70000D382D /* MoodSelectionGrid.swift */; };
+- 		345D99D22DA8549E00376BEB /* DashedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D99D12DA8549E00376BEB /* DashedCard.swift */; };
+-@@ -82,6 +83,7 @@
+- 		0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageColorPicker.swift; sourceTree = "<group>"; };
+- 		0BCF74152DA847C500B0CA2A /* AddPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPage.swift; sourceTree = "<group>"; };
+- 		0BCF74282DA9954500B0CA2A /* DiaryPageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPageRepository.swift; sourceTree = "<group>"; };
+-+		0BCF742A2DADA0F900B0CA2A /* LogoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoHeader.swift; sourceTree = "<group>"; };
+- 		0BFA68062DA6F36E000D382D /* MoodOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodOption.swift; sourceTree = "<group>"; };
+- 		0BFA68082DA70C70000D382D /* MoodSelectionGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSelectionGrid.swift; sourceTree = "<group>"; };
+- 		345D99D12DA8549E00376BEB /* DashedCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedCard.swift; sourceTree = "<group>"; };
+-@@ -156,6 +158,7 @@
+- 				0BFA68062DA6F36E000D382D /* MoodOption.swift */,
+- 				0B97A1332DA82FBC003C005D /* MoodPicker.swift */,
+- 				345D99D12DA8549E00376BEB /* DashedCard.swift */,
+-+				0BCF742A2DADA0F900B0CA2A /* LogoHeader.swift */,
+- 			);
+- 			path = Components;
+- 			sourceTree = "<group>";
+-@@ -399,6 +402,7 @@
+- 			buildActionMask = 2147483647;
+- 			files = (
+- 				0B5B12E22DA57B1C00B4A179 /* EntriesView.swift in Sources */,
+-+				0BCF742B2DADA0F900B0CA2A /* LogoHeader.swift in Sources */,
+- 				0BFA68072DA6F36E000D382D /* MoodOption.swift in Sources */,
+- 				0B5B12E62DA5993200B4A179 /* RoundedTabBar.swift in Sources */,
+- 				0B5B12DE2DA56D8800B4A179 /* DeviceDimensions.swift in Sources */,
+-diff --git a/QueridoDiario/Views/AddPage.swift b/QueridoDiario/Views/AddPage.swift
+-index 8a5b98c..80df27b 100644
+---- a/QueridoDiario/Views/AddPage.swift
+-+++ b/QueridoDiario/Views/AddPage.swift
+-@@ -19,10 +19,14 @@ struct AddPage: View {
+-     
+-     @State var color = PageColor.purple
+-     
+-+    @Binding var isAddPagePresented: Bool
+-+    
+-     var body: some View {
+-         VStack {
+-             HStack {
+--                Button(action: {}, label: {
+-+                Button(action: {
+-+                    isAddPagePresented.toggle()
+-+                }, label: {
+-                     Text("Voltar")
+-                 })
+-                 Spacer()
+-@@ -71,5 +75,5 @@ struct AddPage: View {
+- }
+- 
+- #Preview {
+--    AddPage()
+-+    AddPage(isAddPagePresented: .constant(true))
+- }
+-diff --git a/QueridoDiario/Views/Components/LogoHeader.swift b/QueridoDiario/Views/Components/LogoHeader.swift
+-index e615369..d2fb3e2 100644
+---- a/QueridoDiario/Views/Components/LogoHeader.swift
+-+++ b/QueridoDiario/Views/Components/LogoHeader.swift
+-@@ -9,7 +9,13 @@ import SwiftUI
+- 
+- struct LogoHeader: View {
+-     var body: some View {
+--        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+-+        HStack {
+-+            Image("Verdin")
+-+                .resizable()
+-+                .frame(width: 87.32, height: 55.71)
+-+            Spacer()
+-+        }
+-+        .padding()
+-     }
+- }
+- 
+-diff --git a/QueridoDiario/Views/ContentView.swift b/QueridoDiario/Views/ContentView.swift
+-index cda8b94..2ff8fbb 100644
+---- a/QueridoDiario/Views/ContentView.swift
+-+++ b/QueridoDiario/Views/ContentView.swift
+-@@ -11,26 +11,33 @@ struct ContentView: View {
+-     
+-     @State private var selectedTab = 0
+- 
+-+    @State var isAddPagePresented: Bool = false
+-     
+-     var body: some View {
+-         GeometryReader { geometry in
+--            ZStack(alignment: .bottom) {
+--                Group {
+--                    switch selectedTab {
+--                    case 0: HomeView()
+--                    case 1: EntriesView()
+--                    case 2: SettingsView()
+--                    default: HomeView()
+-+            VStack {
+-+                ZStack(alignment: .bottom) {
+-+                    Group {
+-+                        switch selectedTab {
+-+                        case 0: HomeView(isAddPagePresented: $isAddPagePresented)
+-+                        case 1: EntriesView()
+-+                        case 2: SettingsView()
+-+                        default: HomeView(isAddPagePresented: $isAddPagePresented)
+-+                        }
+-                     }
+-+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+-+                    .padding(.bottom, 90)
+-+                    
+-+                    RoundedTabBar(selectedTab: $selectedTab)
+-+                }
+-+                .ignoresSafeArea(.all, edges: .bottom)
+-+                .onAppear {
+-+                    DeviceDimensions.shared.setDimension(geometry: geometry)
+-                 }
+--                .frame(maxWidth: .infinity, maxHeight: .infinity)
+--                
+--                RoundedTabBar(selectedTab: $selectedTab)
+-             }
+-             .background(Color(.primary01))
+--            .ignoresSafeArea(.all, edges: .bottom)
+--            .onAppear {
+--                DeviceDimensions.shared.setDimension(geometry: geometry)
+-+            .fullScreenCover(isPresented: $isAddPagePresented) {
+-+                AddPage(isAddPagePresented: $isAddPagePresented)
+-             }
+-         }
+-     }
+-diff --git a/QueridoDiario/Views/HomeView.swift b/QueridoDiario/Views/HomeView.swift
+-index c922405..bd21441 100644
+---- a/QueridoDiario/Views/HomeView.swift
+-+++ b/QueridoDiario/Views/HomeView.swift
+-@@ -8,13 +8,37 @@
+- import SwiftUI
+- 
+- struct HomeView: View {
+-+    
+-+    @Binding var isAddPagePresented: Bool
+-+    
+-     var body: some View {
+--        VStack {
+--            Text("Home")
+-+        NavigationView {
+-+            VStack(alignment: .leading) {
+-+                DashedCard {
+-+                    VStack {
+-+                        Text("Esceva seu registro de hoje")
+-+                        CustomButton(
+-+                            action: {
+-+                                isAddPagePresented.toggle()
+-+                            },
+-+                            buttonColor: .purple,
+-+                            buttonStyle: ButtonType.plusIcon("Adicionar Página", .purple)
+-+                        )
+-+                    }.padding(.vertical)
+-+                }
+-+                Text("Recentes")
+-+                    .font(Font.custom("BricolageGrotesque-ExtraBold", size: 24))
+-+                    .foregroundStyle(Color.primary06)
+-+                ScrollView {
+-+                    Card(entry: DiaryPage(title: "Sonho", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", mood: Mood.maligno, color: PageColor.pink), formatedDate: DateFormatterHelper.shared.format(date: Date()))
+-+                }
+-+            }
+-+            .background(Color.primary01)
+-+            .padding()
+-         }
+-     }
+- }
+- 
+- #Preview {
+--    HomeView()
+-+    HomeView(isAddPagePresented: .constant(false))
+- }

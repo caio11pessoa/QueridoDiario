@@ -6,15 +6,46 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HomeView: View {
+    
+//    @Environment(\.modelContext) var context
+    
+    @Binding var isAddPagePresented: Bool
+    
+    @Query var pages: [DiaryPage]
+    
     var body: some View {
-        VStack {
-            Text("Home")
+        NavigationView {
+            VStack(alignment: .leading) {
+                DashedCard {
+                    VStack {
+                        Text("Esceva seu registro de hoje")
+                        CustomButton(
+                            action: {
+                                isAddPagePresented.toggle()
+                            },
+                            buttonColor: .purple,
+                            buttonStyle: ButtonType.plusIcon("Adicionar Página", .purple)
+                        )
+                    }.padding(.vertical)
+                }
+                Text("Recentes")
+                    .font(Font.custom("BricolageGrotesque-ExtraBold", size: 24))
+                    .foregroundStyle(Color.primary06)
+                ScrollView {
+                    ForEach(pages) {page in
+                        Card(entry: page, formatedDate: DateFormatterHelper.shared.format(date: page.createdAt))
+                    }
+                }
+            }
+            .background(Color.primary01)
+            .padding()
         }
     }
 }
 
 #Preview {
-    HomeView()
+    HomeView(isAddPagePresented: .constant(false))
 }
