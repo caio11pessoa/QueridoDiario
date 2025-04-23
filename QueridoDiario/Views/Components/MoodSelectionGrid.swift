@@ -13,7 +13,7 @@ struct MoodSelectionGrid: View {
     
     @Binding var isPresented: Bool
     
-    @ObservedObject var viewModel = AddPageViewModel.shared
+    @ObservedObject var viewModel = PageViewModel.shared
 
     var body: some View {
         let columns = [

@@ -33,6 +33,16 @@ class DiaryPageRepository {
         }
     }
     
+    func fetchDiaryPage(by id: UUID) -> DiaryPage? {
+        let fetchRequest = FetchDescriptor<DiaryPage>(predicate: #Predicate { $0.id == id })
+        do {
+            return try context.fetch(fetchRequest).first
+        } catch {
+            print("Error fetching DiaryPage by id: \(error)")
+            return nil
+        }
+    }
+    
     func updateDiaryPage(_ diaryPage: DiaryPage, title: String? = nil, content: String? = nil, mood: Mood? = nil, color: PageColor? = nil) {
         if let title = title {
             diaryPage.title = title
@@ -61,4 +71,5 @@ class DiaryPageRepository {
             print("Error saving context: \(error)")
         }
     }
+    
 }

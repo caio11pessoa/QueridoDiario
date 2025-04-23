@@ -24,7 +24,7 @@ struct QueridoDiarioApp: App {
     }()
     
     init() {
-        AddPageViewModel.shared.initialize(context: sharedModelContainer.mainContext)
+        PageViewModel.shared.initialize(context: sharedModelContainer.mainContext)
         setupTabBarAppearance()
     }
 

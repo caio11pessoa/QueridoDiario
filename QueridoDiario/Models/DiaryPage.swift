@@ -11,6 +11,7 @@ import SwiftData
 
 @Model
 class DiaryPage {
+    var id = UUID()
     var title: String
     var content: String
     var mood: Mood

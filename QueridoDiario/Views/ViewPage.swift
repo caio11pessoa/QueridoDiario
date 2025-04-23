@@ -1,23 +1,21 @@
 //
-//  AddPage.swift
+//  ViewPage.swift
 //  QueridoDiario
 //
-//  Created by Lais Godinho on 10/04/25.
+//  Created by Lais Godinho on 23/04/25.
 //
 
 import SwiftUI
-import SwiftData
 
-struct AddPage: View {
-    
+struct ViewPage: View {
     @Environment(\.modelContext) var context
     
     @StateObject private var viewModel: PageViewModel
     
-    @Binding var isAddPagePresented: Bool
+    @Binding var isViewPagePresented: Bool
     
-    init(isAddPagePresented: Binding<Bool>) {
-            self._isAddPagePresented = isAddPagePresented
+    init(isViewPagePresented: Binding<Bool>) {
+            self._isViewPagePresented = isViewPagePresented
         self._viewModel = StateObject(wrappedValue: PageViewModel.shared)
         }
     
@@ -25,7 +23,7 @@ struct AddPage: View {
         VStack {
             HStack {
                 Button(action: {
-                    isAddPagePresented.toggle()
+                    isViewPagePresented.toggle()
                 }, label: {
                     Text("Voltar")
                 })
@@ -35,7 +33,7 @@ struct AddPage: View {
                 Spacer()
                 Button(action: {
                     viewModel.saveDiaryPage()
-                    isAddPagePresented.toggle()
+                    isViewPagePresented.toggle()
                 }, label: {
                     Text("Salvar")
                 })
@@ -44,8 +42,7 @@ struct AddPage: View {
             HStack {
                 ZStack {
                     HStack {
-                        TextField("", text: $viewModel.title, prompt: Text("Título")
-                            .foregroundStyle(Color.primary06))
+                        Text(viewModel.title)
                             .font(Font.custom("BricolageGrotesque-ExtraBold", size: 42))
                             .foregroundStyle(Color.primary06)
                         Spacer()
@@ -57,23 +54,15 @@ struct AddPage: View {
             
             ZStack {
                 VStack {
-                    TextField("", text: $viewModel.content,
-                              prompt: Text("Como foi seu dia?")
-                                  .foregroundStyle(Color.primary06),
-                              axis: .vertical)
+                    Text(viewModel.content)
                         .font(Font.custom("BricolageGrotesque-Regular", size: 15))
                         .foregroundStyle(Color.primary06)
                         
                     Spacer()
                 }
-                ToolBar()
             }
         }
         .padding()
         .background(viewModel.color.background)
     }
 }
-
-//#Preview {
-//    AddPage(isAddPagePresented: .constant(true))
-//}
