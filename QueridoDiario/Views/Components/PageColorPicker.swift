@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PageColorPicker: View {
     
-    @ObservedObject var viewModel = AddPageViewModel.shared
+    @ObservedObject var viewModel = PageViewModel.shared
     
     @Binding var isPresented: Bool
     

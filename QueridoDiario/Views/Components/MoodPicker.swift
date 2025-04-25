@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MoodPicker: View {
     
-    @ObservedObject var viewModel = AddPageViewModel.shared
+    @ObservedObject var viewModel = PageViewModel.shared
     
     @State var isSelected = false
     

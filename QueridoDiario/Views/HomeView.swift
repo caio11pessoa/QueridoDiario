@@ -14,6 +14,10 @@ struct HomeView: View {
     
     @Binding var isAddPagePresented: Bool
     
+    @Binding var isViewPagePresented: Bool
+    
+    @StateObject var viewModel = PageViewModel.shared
+    
     @Query var pages: [DiaryPage]
     
     var body: some View {
@@ -37,7 +41,12 @@ struct HomeView: View {
                 ScrollView {
                     ForEach(pages) {page in
                         Card(entry: page, formatedDate: DateFormatterHelper.shared.format(date: page.createdAt))
+                            .onTapGesture {
+                                viewModel.setValues(page: page)
+                                isViewPagePresented.toggle()
+                            }
                     }
+                    
                 }
             }
             .background(Color.primary01)
@@ -46,6 +55,3 @@ struct HomeView: View {
     }
 }
 
-#Preview {
-    HomeView(isAddPagePresented: .constant(false))
-}

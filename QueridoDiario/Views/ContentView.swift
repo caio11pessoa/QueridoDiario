@@ -13,16 +13,18 @@ struct ContentView: View {
 
     @State var isAddPagePresented: Bool = false
     
+    @State var isViewPagePresented: Bool = false
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
                 ZStack(alignment: .bottom) {
                     Group {
                         switch selectedTab {
-                        case 0: HomeView(isAddPagePresented: $isAddPagePresented)
+                        case 0: HomeView(isAddPagePresented: $isAddPagePresented, isViewPagePresented: $isViewPagePresented)
                         case 1: EntriesView()
                         case 2: SettingsView()
-                        default: HomeView(isAddPagePresented: $isAddPagePresented)
+                        default: HomeView(isAddPagePresented: $isAddPagePresented, isViewPagePresented: $isViewPagePresented)
                         }
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -38,6 +40,9 @@ struct ContentView: View {
             .background(Color(.primary01))
             .fullScreenCover(isPresented: $isAddPagePresented) {
                 AddPage(isAddPagePresented: $isAddPagePresented)
+            }
+            .fullScreenCover(isPresented: $isViewPagePresented) {
+                ViewPage(isViewPagePresented: $isViewPagePresented)
             }
         }
     }

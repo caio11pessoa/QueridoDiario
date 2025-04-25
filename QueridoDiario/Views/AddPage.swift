@@ -12,13 +12,13 @@ struct AddPage: View {
     
     @Environment(\.modelContext) var context
     
-    @StateObject private var viewModel: AddPageViewModel
+    @StateObject private var viewModel: PageViewModel
     
     @Binding var isAddPagePresented: Bool
     
     init(isAddPagePresented: Binding<Bool>) {
             self._isAddPagePresented = isAddPagePresented
-        self._viewModel = StateObject(wrappedValue: AddPageViewModel.shared)
+        self._viewModel = StateObject(wrappedValue: PageViewModel.shared)
         }
     
     var body: some View {

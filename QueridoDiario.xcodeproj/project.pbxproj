@@ -17,6 +17,7 @@
 		0B5B12E62DA5993200B4A179 /* RoundedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12E52DA5992700B4A179 /* RoundedTabBar.swift */; };
 		0B5B12E82DA5A8A500B4A179 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12E72DA5A8A500B4A179 /* Card.swift */; };
 		0B5B12EA2DA5B43800B4A179 /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5B12E92DA5B43300B4A179 /* DateFormatterHelper.swift */; };
+		0B7F5E282DB95E330082E9EB /* ViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7F5E272DB95E330082E9EB /* ViewPage.swift */; };
 		0B97A1342DA82FBC003C005D /* MoodPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B97A1332DA82FBC003C005D /* MoodPicker.swift */; };
 		0BB60E162DA43B2100ACA7E8 /* My Lock - Animations(3).json in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E142DA43B2100ACA7E8 /* My Lock - Animations(3).json */; };
 		0BB60E172DA43B2100ACA7E8 /* My Lock - Animations(4).json in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E152DA43B2100ACA7E8 /* My Lock - Animations(4).json */; };
@@ -71,6 +72,7 @@
 		0B5B12E52DA5992700B4A179 /* RoundedTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTabBar.swift; sourceTree = "<group>"; };
 		0B5B12E72DA5A8A500B4A179 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		0B5B12E92DA5B43300B4A179 /* DateFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
+		0B7F5E272DB95E330082E9EB /* ViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPage.swift; sourceTree = "<group>"; };
 		0B97A1332DA82FBC003C005D /* MoodPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodPicker.swift; sourceTree = "<group>"; };
 		0BB60E122DA43B2100ACA7E8 /* My Lock - Animations(1).json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "My Lock - Animations(1).json"; sourceTree = "<group>"; };
 		0BB60E132DA43B2100ACA7E8 /* My Lock - Animations(2).json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "My Lock - Animations(2).json"; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				0B5B12E12DA57B1C00B4A179 /* EntriesView.swift */,
 				0B5B12E32DA57B3300B4A179 /* SettingsView.swift */,
 				0BCF74152DA847C500B0CA2A /* AddPage.swift */,
+				0B7F5E272DB95E330082E9EB /* ViewPage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				345D99D22DA8549E00376BEB /* DashedCard.swift in Sources */,
 				0B5B12EA2DA5B43800B4A179 /* DateFormatterHelper.swift in Sources */,
 				0B521A252DB8275400BBD291 /* AddPageViewModel.swift in Sources */,
+				0B7F5E282DB95E330082E9EB /* ViewPage.swift in Sources */,
 				347A3BCF2D2D9E5B004243CE /* ContentView.swift in Sources */,
 				0B97A1342DA82FBC003C005D /* MoodPicker.swift in Sources */,
 				0B5B12E42DA57B3300B4A179 /* SettingsView.swift in Sources */,
