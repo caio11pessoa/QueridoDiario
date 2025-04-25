@@ -20,7 +20,7 @@ struct ViewPage: View {
         }
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             HStack {
                 Button(action: {
                     isViewPagePresented.toggle()
@@ -31,12 +31,23 @@ struct ViewPage: View {
                 Text("Adicionar página")
                     .bold()
                 Spacer()
-                Button(action: {
-                    viewModel.saveDiaryPage()
-                    isViewPagePresented.toggle()
-                }, label: {
-                    Text("Salvar")
-                })
+                Image(systemName: "ellipsis")
+                    .contextMenu {
+                        Button {
+                            // Add this item to a list of favorites.
+                        } label: {
+                            Label("Editar", systemImage: "square.and.pencil")
+                        }
+                        Button {
+                            if let id = viewModel.id {
+                                viewModel.deleteDiaryPage(by: id)
+                                isViewPagePresented = false
+                            }
+                            
+                        } label: {
+                            Label("Excluir", systemImage: "trash")
+                        }
+                    }
             }
             
             HStack {
@@ -46,21 +57,23 @@ struct ViewPage: View {
                             .font(Font.custom("BricolageGrotesque-ExtraBold", size: 42))
                             .foregroundStyle(Color.primary06)
                         Spacer()
+                        viewModel.mood.emote
+                            .resizable()
+                            .frame(width: 59.44, height: 59.44)
                     }
-                    MoodPicker()
                     
                 }
             }.padding(.vertical)
             
-            ZStack {
-                VStack {
+//            ZStack {
+                VStack(alignment: .leading) {
                     Text(viewModel.content)
                         .font(Font.custom("BricolageGrotesque-Regular", size: 15))
                         .foregroundStyle(Color.primary06)
                         
                     Spacer()
                 }
-            }
+//            }
         }
         .padding()
         .background(viewModel.color.background)
