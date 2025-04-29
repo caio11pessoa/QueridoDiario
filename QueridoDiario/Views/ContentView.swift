@@ -42,7 +42,7 @@ struct ContentView: View {
                 AddPage(isAddPagePresented: $isAddPagePresented)
             }
             .fullScreenCover(isPresented: $isViewPagePresented) {
-                ViewPage(isViewPagePresented: $isViewPagePresented)
+                PageDetails(isViewPagePresented: $isViewPagePresented)
             }
         }
     }

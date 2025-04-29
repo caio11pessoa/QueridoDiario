@@ -1,5 +1,5 @@
 //
-//  AddPageViewModel.swift
+//  PageViewModel.swift
 //  QueridoDiario
 //
 //  Created by Lais Godinho on 22/04/25.
@@ -75,4 +75,16 @@ class PageViewModel: ObservableObject {
             repository.deleteDiaryPage(page)
         }
     }
+    
+    func editDiaryPage() {
+        guard let repository = repository, let id = id else {
+               print("Repository is not initialized or page ID is missing.")
+               return
+           }
+        
+        if let page = repository.fetchDiaryPage(by: id) {
+            repository.updateDiaryPage(page, title: title, content: content, mood: mood, color: color)
+        }
+    }
+    
 }
