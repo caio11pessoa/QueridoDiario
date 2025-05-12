@@ -15,9 +15,18 @@ struct ContentView: View {
     
     @State var isViewPagePresented: Bool = false
     
+    @State private var randomImage: String = Bool.random() ? "Verdin" : "Rosinha"
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
+                HStack {
+                    Image(randomImage)
+                        .resizable()
+                        .frame(width: 65.75, height: 42)
+                    Spacer()
+                }
+                .padding()
                 ZStack(alignment: .bottom) {
                     Group {
                         switch selectedTab {
