@@ -31,7 +31,7 @@ struct ContentView: View {
                     Group {
                         switch selectedTab {
                         case 0: HomeView(isAddPagePresented: $isAddPagePresented, isViewPagePresented: $isViewPagePresented)
-                        case 1: EntriesView()
+                        case 1: EntriesView(isAddPagePresented: $isAddPagePresented, isViewPagePresented: $isViewPagePresented)
                         case 2: SettingsView()
                         default: HomeView(isAddPagePresented: $isAddPagePresented, isViewPagePresented: $isViewPagePresented)
                         }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,6 +29,8 @@
 		0BB60E582DA4485400ACA7E8 /* BricolageGrotesque-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E572DA4485400ACA7E8 /* BricolageGrotesque-ExtraBold.ttf */; };
 		0BB60E5A2DA450C400ACA7E8 /* DiaryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB60E592DA450BE00ACA7E8 /* DiaryPage.swift */; };
 		0BB60E5F2DA45F6400ACA7E8 /* PageColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */; };
+		0BC618B52DD276BD00B70453 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC618B42DD276BA00B70453 /* MonthView.swift */; };
+		0BC618B72DD276E700B70453 /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC618B62DD276D600B70453 /* WeekView.swift */; };
 		0BCF74162DA847C500B0CA2A /* AddPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF74152DA847C500B0CA2A /* AddPage.swift */; };
 		0BCF74292DA9954C00B0CA2A /* DiaryPageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF74282DA9954500B0CA2A /* DiaryPageRepository.swift */; };
 		0BCF742B2DADA0F900B0CA2A /* LogoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF742A2DADA0F900B0CA2A /* LogoHeader.swift */; };
@@ -85,6 +87,8 @@
 		0BB60E572DA4485400ACA7E8 /* BricolageGrotesque-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BricolageGrotesque-ExtraBold.ttf"; sourceTree = "<group>"; };
 		0BB60E592DA450BE00ACA7E8 /* DiaryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPage.swift; sourceTree = "<group>"; };
 		0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageColorPicker.swift; sourceTree = "<group>"; };
+		0BC618B42DD276BA00B70453 /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
+		0BC618B62DD276D600B70453 /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
 		0BCF74152DA847C500B0CA2A /* AddPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPage.swift; sourceTree = "<group>"; };
 		0BCF74282DA9954500B0CA2A /* DiaryPageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPageRepository.swift; sourceTree = "<group>"; };
 		0BCF742A2DADA0F900B0CA2A /* LogoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoHeader.swift; sourceTree = "<group>"; };
@@ -102,6 +106,10 @@
 		347A3BE92D2D9E5C004243CE /* QueridoDiarioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueridoDiarioUITests.swift; sourceTree = "<group>"; };
 		347A3BEB2D2D9E5C004243CE /* QueridoDiarioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueridoDiarioUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		0BC618B02DD2768A00B70453 /* Services */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Services; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		347A3BC62D2D9E5B004243CE /* Frameworks */ = {
@@ -153,6 +161,8 @@
 		0BB60E5B2DA45F2C00ACA7E8 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				0BC618B62DD276D600B70453 /* WeekView.swift */,
+				0BC618B42DD276BA00B70453 /* MonthView.swift */,
 				0BFA68082DA70C70000D382D /* MoodSelectionGrid.swift */,
 				0B5B12E52DA5992700B4A179 /* RoundedTabBar.swift */,
 				0B5B12DB2DA56B1300B4A179 /* ToolBar.swift */,
@@ -192,6 +202,7 @@
 			children = (
 				0BB60E522DA4469400ACA7E8 /* Info.plist */,
 				34FC5EB72D302B8400048049 /* ViewModels */,
+				0BC618B02DD2768A00B70453 /* Services */,
 				34FC5EB62D302B7E00048049 /* Models */,
 				34FC5EB52D302ADD00048049 /* Views */,
 				34FC5EC42D31882600048049 /* Resources */,
@@ -283,6 +294,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				0BC618B02DD2768A00B70453 /* Services */,
 			);
 			name = QueridoDiario;
 			productName = QueridoDiario;
@@ -408,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B5B12E22DA57B1C00B4A179 /* EntriesView.swift in Sources */,
+				0BC618B72DD276E700B70453 /* WeekView.swift in Sources */,
 				0BCF742B2DADA0F900B0CA2A /* LogoHeader.swift in Sources */,
 				0BFA68072DA6F36E000D382D /* MoodOption.swift in Sources */,
 				0B5B12E62DA5993200B4A179 /* RoundedTabBar.swift in Sources */,
@@ -425,6 +440,7 @@
 				0BFA68092DA70C75000D382D /* MoodSelectionGrid.swift in Sources */,
 				0B5B12E82DA5A8A500B4A179 /* Card.swift in Sources */,
 				0BCF74162DA847C500B0CA2A /* AddPage.swift in Sources */,
+				0BC618B52DD276BD00B70453 /* MonthView.swift in Sources */,
 				0B5B12DA2DA4694100B4A179 /* CustomButton.swift in Sources */,
 				0BB60E5F2DA45F6400ACA7E8 /* PageColorPicker.swift in Sources */,
 				0B5B12DC2DA56B1300B4A179 /* ToolBar.swift in Sources */,

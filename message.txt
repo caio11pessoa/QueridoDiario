@@ -1,0 +1,272 @@
+diff --git a/QueridoDiario.xcodeproj/project.pbxproj b/QueridoDiario.xcodeproj/project.pbxproj
+index e02e86c..9a27c3a 100644
+--- a/QueridoDiario.xcodeproj/project.pbxproj
++++ b/QueridoDiario.xcodeproj/project.pbxproj
+@@ -3,7 +3,7 @@
+ 	archiveVersion = 1;
+ 	classes = {
+ 	};
+-	objectVersion = 56;
++	objectVersion = 70;
+ 	objects = {
+ 
+ /* Begin PBXBuildFile section */
+@@ -29,6 +29,8 @@
+ 		0BB60E582DA4485400ACA7E8 /* BricolageGrotesque-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BB60E572DA4485400ACA7E8 /* BricolageGrotesque-ExtraBold.ttf */; };
+ 		0BB60E5A2DA450C400ACA7E8 /* DiaryPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB60E592DA450BE00ACA7E8 /* DiaryPage.swift */; };
+ 		0BB60E5F2DA45F6400ACA7E8 /* PageColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */; };
++		0BC618B52DD276BD00B70453 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC618B42DD276BA00B70453 /* MonthView.swift */; };
++		0BC618B72DD276E700B70453 /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC618B62DD276D600B70453 /* WeekView.swift */; };
+ 		0BCF74162DA847C500B0CA2A /* AddPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF74152DA847C500B0CA2A /* AddPage.swift */; };
+ 		0BCF74292DA9954C00B0CA2A /* DiaryPageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF74282DA9954500B0CA2A /* DiaryPageRepository.swift */; };
+ 		0BCF742B2DADA0F900B0CA2A /* LogoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF742A2DADA0F900B0CA2A /* LogoHeader.swift */; };
+@@ -85,6 +87,8 @@
+ 		0BB60E572DA4485400ACA7E8 /* BricolageGrotesque-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BricolageGrotesque-ExtraBold.ttf"; sourceTree = "<group>"; };
+ 		0BB60E592DA450BE00ACA7E8 /* DiaryPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPage.swift; sourceTree = "<group>"; };
+ 		0BB60E5E2DA45F6400ACA7E8 /* PageColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageColorPicker.swift; sourceTree = "<group>"; };
++		0BC618B42DD276BA00B70453 /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
++		0BC618B62DD276D600B70453 /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
+ 		0BCF74152DA847C500B0CA2A /* AddPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPage.swift; sourceTree = "<group>"; };
+ 		0BCF74282DA9954500B0CA2A /* DiaryPageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPageRepository.swift; sourceTree = "<group>"; };
+ 		0BCF742A2DADA0F900B0CA2A /* LogoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoHeader.swift; sourceTree = "<group>"; };
+@@ -103,6 +107,10 @@
+ 		347A3BEB2D2D9E5C004243CE /* QueridoDiarioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueridoDiarioUITestsLaunchTests.swift; sourceTree = "<group>"; };
+ /* End PBXFileReference section */
+ 
++/* Begin PBXFileSystemSynchronizedRootGroup section */
++		0BC618B02DD2768A00B70453 /* Services */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Services; sourceTree = "<group>"; };
++/* End PBXFileSystemSynchronizedRootGroup section */
++
+ /* Begin PBXFrameworksBuildPhase section */
+ 		347A3BC62D2D9E5B004243CE /* Frameworks */ = {
+ 			isa = PBXFrameworksBuildPhase;
+@@ -153,6 +161,8 @@
+ 		0BB60E5B2DA45F2C00ACA7E8 /* Components */ = {
+ 			isa = PBXGroup;
+ 			children = (
++				0BC618B62DD276D600B70453 /* WeekView.swift */,
++				0BC618B42DD276BA00B70453 /* MonthView.swift */,
+ 				0BFA68082DA70C70000D382D /* MoodSelectionGrid.swift */,
+ 				0B5B12E52DA5992700B4A179 /* RoundedTabBar.swift */,
+ 				0B5B12DB2DA56B1300B4A179 /* ToolBar.swift */,
+@@ -192,6 +202,7 @@
+ 			children = (
+ 				0BB60E522DA4469400ACA7E8 /* Info.plist */,
+ 				34FC5EB72D302B8400048049 /* ViewModels */,
++				0BC618B02DD2768A00B70453 /* Services */,
+ 				34FC5EB62D302B7E00048049 /* Models */,
+ 				34FC5EB52D302ADD00048049 /* Views */,
+ 				34FC5EC42D31882600048049 /* Resources */,
+@@ -284,6 +295,9 @@
+ 			);
+ 			dependencies = (
+ 			);
++			fileSystemSynchronizedGroups = (
++				0BC618B02DD2768A00B70453 /* Services */,
++			);
+ 			name = QueridoDiario;
+ 			productName = QueridoDiario;
+ 			productReference = 347A3BC92D2D9E5B004243CE /* QueridoDiario.app */;
+@@ -408,6 +422,7 @@
+ 			buildActionMask = 2147483647;
+ 			files = (
+ 				0B5B12E22DA57B1C00B4A179 /* EntriesView.swift in Sources */,
++				0BC618B72DD276E700B70453 /* WeekView.swift in Sources */,
+ 				0BCF742B2DADA0F900B0CA2A /* LogoHeader.swift in Sources */,
+ 				0BFA68072DA6F36E000D382D /* MoodOption.swift in Sources */,
+ 				0B5B12E62DA5993200B4A179 /* RoundedTabBar.swift in Sources */,
+@@ -425,6 +440,7 @@
+ 				0BFA68092DA70C75000D382D /* MoodSelectionGrid.swift in Sources */,
+ 				0B5B12E82DA5A8A500B4A179 /* Card.swift in Sources */,
+ 				0BCF74162DA847C500B0CA2A /* AddPage.swift in Sources */,
++				0BC618B52DD276BD00B70453 /* MonthView.swift in Sources */,
+ 				0B5B12DA2DA4694100B4A179 /* CustomButton.swift in Sources */,
+ 				0BB60E5F2DA45F6400ACA7E8 /* PageColorPicker.swift in Sources */,
+ 				0B5B12DC2DA56B1300B4A179 /* ToolBar.swift in Sources */,
+diff --git a/QueridoDiario/Views/Components/MonthView.swift b/QueridoDiario/Views/Components/MonthView.swift
+index 647fd6e..8113723 100644
+--- a/QueridoDiario/Views/Components/MonthView.swift
++++ b/QueridoDiario/Views/Components/MonthView.swift
+@@ -13,19 +13,32 @@ struct MonthView: View {
+ 
+     var body: some View {
+         let weeks = calendarService.completeWeeks(for: selectedDate)
++        let selectedDayOfMonth = Calendar.current.component(.day, from: selectedDate)
+         VStack {
+             ForEach(weeks, id: \.self) { week in
+                 HStack {
+                     ForEach(week, id: \.self) { day in
+                         let isCurrentMonth = calendarService.isDayInCurrentMonth(day, for: selectedDate)
+-                        Text("\(day)")
+-                            .frame(maxWidth: .infinity)
+-                            .foregroundColor(isCurrentMonth ? .primary : .gray) // Dias fora do mês em cinza
+-                            .onTapGesture {
+-                                if isCurrentMonth {
++                        if day == selectedDayOfMonth && isCurrentMonth {
++                            Text("\(day)")
++                                .frame(maxWidth: .infinity)
++                                .foregroundColor(.white)
++                                .padding(8)
++                                .background(Color.primary04)
++                                .clipShape(Circle())
++                                .onTapGesture {
+                                     selectedDate = calendarService.dateFromDay(day, in: selectedDate)
+                                 }
+-                            }
++                        } else {
++                            Text("\(day)")
++                                .frame(maxWidth: .infinity)
++                                .foregroundColor(isCurrentMonth ? .primary : .gray)
++                                .onTapGesture {
++                                    if isCurrentMonth {
++                                        selectedDate = calendarService.dateFromDay(day, in: selectedDate)
++                                    }
++                                }
++                        }
+                     }
+                 }
+             }
+diff --git a/QueridoDiario/Views/Components/WeekView.swift b/QueridoDiario/Views/Components/WeekView.swift
+index a44b71f..7afe5d6 100644
+--- a/QueridoDiario/Views/Components/WeekView.swift
++++ b/QueridoDiario/Views/Components/WeekView.swift
+@@ -1,10 +1,3 @@
+-//
+-//  WeekView.swift
+-//  QueridoDiario
+-//
+-//  Created by Lais Godinho on 12/05/25.
+-//
+-
+ import SwiftUI
+ 
+ struct WeekView: View {
+@@ -15,11 +8,24 @@ struct WeekView: View {
+         let week = calendarService.currentWeek(for: selectedDate)
+         HStack {
+             ForEach(week, id: \.self) { day in
+-                Text("\(calendarService.calendar.component(.day, from: day))")
+-                    .frame(maxWidth: .infinity)
+-                    .onTapGesture {
+-                        selectedDate = day
+-                    }
++                let isCurrentDay = calendarService.calendar.isDate(day, inSameDayAs: selectedDate)
++                if isCurrentDay {
++                    Text("\(calendarService.calendar.component(.day, from: day))")
++                        .frame(maxWidth: .infinity)
++                        .onTapGesture {
++                            selectedDate = day
++                        }
++                        .foregroundStyle(Color.neutrals01)
++                        .background(Color.primary04)
++                        .clipShape(Circle())
++                } else {
++                    
++                    Text("\(calendarService.calendar.component(.day, from: day))")
++                        .frame(maxWidth: .infinity)
++                        .onTapGesture {
++                            selectedDate = day
++                        }
++                }
+             }
+         }
+         .padding()
+diff --git a/QueridoDiario/Views/ContentView.swift b/QueridoDiario/Views/ContentView.swift
+index 1a06e19..45fd27b 100644
+--- a/QueridoDiario/Views/ContentView.swift
++++ b/QueridoDiario/Views/ContentView.swift
+@@ -31,7 +31,7 @@ struct ContentView: View {
+                     Group {
+                         switch selectedTab {
+                         case 0: HomeView(isAddPagePresented: $isAddPagePresented, isViewPagePresented: $isViewPagePresented)
+-                        case 1: EntriesView()
++                        case 1: EntriesView(isAddPagePresented: $isAddPagePresented, isViewPagePresented: $isViewPagePresented)
+                         case 2: SettingsView()
+                         default: HomeView(isAddPagePresented: $isAddPagePresented, isViewPagePresented: $isViewPagePresented)
+                         }
+diff --git a/QueridoDiario/Views/EntriesView.swift b/QueridoDiario/Views/EntriesView.swift
+index 8611a97..423697d 100644
+--- a/QueridoDiario/Views/EntriesView.swift
++++ b/QueridoDiario/Views/EntriesView.swift
+@@ -5,16 +5,76 @@
+ //  Created by Lais Godinho on 08/04/25.
+ //
+ 
++import SwiftData
+ import SwiftUI
+ 
+ struct EntriesView: View {
++    @State private var searchText: String = ""
++    @State private var selectedDate: Date = Date()
++    @State private var selectedMode: String = "Mês"
++    @Binding var isAddPagePresented: Bool
++    @Binding var isViewPagePresented: Bool
++    @StateObject var viewModel = PageViewModel.shared
++    @Query var pages: [DiaryPage]
++
++    var filteredPages: [DiaryPage] {
++        pages.filter { page in
++            (searchText.isEmpty || page.title.contains(searchText) || page.content.contains(searchText)) &&
++            Calendar.current.isDate(page.createdAt, inSameDayAs: selectedDate)
++        }
++    }
++
+     var body: some View {
+         VStack {
+-            Text("Entries")
++            // Text Filter
++            TextField("Buscar por título ou conteúdo", text: $searchText)
++                .textFieldStyle(RoundedBorderTextFieldStyle())
++                .padding()
++
++            // Date Filter
++            Picker("Modo de Visualização", selection: $selectedMode) {
++                Text("Mês").tag("Mês")
++                Text("Semana").tag("Semana")
++            }
++            .pickerStyle(SegmentedPickerStyle())
++            .padding()
++
++            if selectedMode == "Mês" {
++                MonthView(selectedDate: $selectedDate)
++            } else {
++                WeekView(selectedDate: $selectedDate)
++            }
++
++            // DiaryPages List
++            if filteredPages.isEmpty {
++                DashedCard {
++                    VStack {
++                        Text("Esceva seu registro de hoje")
++                        CustomButton(
++                            action: {
++                                isAddPagePresented.toggle()
++                            },
++                            buttonColor: .purple,
++                            buttonStyle: ButtonType.plusIcon("Adicionar Página", .purple)
++                        )
++                    }.padding(.vertical)
++                }
++            } else {
++                Text("Recentes")
++                    .font(Font.custom("BricolageGrotesque-ExtraBold", size: 24))
++                    .foregroundStyle(Color.primary06)
++                ScrollView {
++                    ForEach(filteredPages) { page in
++                        Card(entry: page, formatedDate: DateFormatterHelper.shared.format(date: page.createdAt))
++                            .onTapGesture {
++                                viewModel.setValues(page: page)
++                                isViewPagePresented.toggle()
++                            }
++                    }
++                }
++            }
++            Spacer()
+         }
++        .padding()
+     }
+ }
+-
+-#Preview {
+-    EntriesView()
+-}
