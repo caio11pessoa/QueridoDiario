@@ -70,7 +70,14 @@ class CalendarService {
 extension CalendarService {
     func isDayInCurrentMonth(_ day: Int, for date: Date) -> Bool {
         let daysInCurrentMonth = daysInMonth(for: date)
-        let firstWeekday = firstWeekdayOfMonth(for: date)
+//        let firstWeekday = firstWeekdayOfMonth(for: date)
         return day > 0 && day <= daysInCurrentMonth
+    }
+    
+    func monthName(for date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "pt_BR")
+        dateFormatter.dateFormat = "LLLL"
+        return dateFormatter.string(from: date).capitalized
     }
 }

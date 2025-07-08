@@ -37,6 +37,7 @@ struct ContentView: View {
                         }
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    
                     .padding(.bottom, 90)
                     
                     RoundedTabBar(selectedTab: $selectedTab)

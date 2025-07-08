@@ -15,14 +15,18 @@ struct MonthView: View {
         let weeks = calendarService.completeWeeks(for: selectedDate)
         let selectedDayOfMonth = Calendar.current.component(.day, from: selectedDate)
         VStack {
+            CalendarHeader(selectedDate: $selectedDate)
             ForEach(weeks, id: \.self) { week in
                 HStack {
                     ForEach(week, id: \.self) { day in
                         let isCurrentMonth = calendarService.isDayInCurrentMonth(day, for: selectedDate)
+                        if isCurrentMonth {
+                            
+                        }
                         if day == selectedDayOfMonth && isCurrentMonth {
                             Text("\(day)")
                                 .frame(maxWidth: .infinity)
-                                .foregroundColor(.white)
+                                .foregroundStyle(Color.neutrals01)
                                 .padding(8)
                                 .background(Color.primary04)
                                 .clipShape(Circle())
@@ -32,7 +36,8 @@ struct MonthView: View {
                         } else {
                             Text("\(day)")
                                 .frame(maxWidth: .infinity)
-                                .foregroundColor(isCurrentMonth ? .primary : .gray)
+                                .foregroundColor(.primary)
+                                .padding(8)
                                 .onTapGesture {
                                     if isCurrentMonth {
                                         selectedDate = calendarService.dateFromDay(day, in: selectedDate)

@@ -49,8 +49,8 @@ struct HomeView: View {
                     
                 }
             }
-            .background(Color.primary01)
             .padding()
+            .background(Color.primary01)
         }
     }
 }
