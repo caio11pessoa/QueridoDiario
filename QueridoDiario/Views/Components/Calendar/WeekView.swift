@@ -1,36 +1,33 @@
 import SwiftUI
 
+import SwiftUI
+
 struct WeekView: View {
     @Binding var selectedDate: Date
     private let calendarService = CalendarService.shared
 
     var body: some View {
         let week = calendarService.currentWeek(for: selectedDate)
-        VStack {
-            CalendarHeader(selectedDate: $selectedDate)
-            HStack {
+
+        VStack(spacing: 12) {
+            CalendarHeader(selectedDate: $selectedDate, calendarService: calendarService)
+
+            HStack(spacing: 0) {
                 ForEach(week, id: \.self) { day in
-                    let isCurrentDay = calendarService.calendar.isDate(day, inSameDayAs: selectedDate)
-                    if isCurrentDay {
-                        Text("\(calendarService.calendar.component(.day, from: day))")
-                            .frame(maxWidth: .infinity)
-                            .onTapGesture {
-                                selectedDate = day
-                            }
-                            .foregroundStyle(Color.neutrals01)
-                            .background(Color.primary04)
-                            .clipShape(Circle())
-                    } else {
-                        
-                        Text("\(calendarService.calendar.component(.day, from: day))")
-                            .frame(maxWidth: .infinity)
-                            .onTapGesture {
-                                selectedDate = day
-                            }
+                    let isSelected = calendarService.calendar.isDate(day, inSameDayAs: selectedDate)
+                    let isInCurrentMonth = calendarService.isDayInCurrentMonth(day, for: selectedDate)
+
+                    DayView(
+                        date: day,
+                        isSelected: isSelected,
+                        isInCurrentMonth: isInCurrentMonth
+                    ) {
+                        selectedDate = day
                     }
                 }
             }
-            .padding()
         }
+        .padding([.horizontal, .bottom])
     }
 }
+

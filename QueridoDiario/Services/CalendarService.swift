@@ -11,73 +11,52 @@ class CalendarService {
     static let shared = CalendarService()
     let calendar = Calendar.current
 
-    func daysInMonth(for date: Date) -> Int {
-        calendar.range(of: .day, in: .month, for: date)?.count ?? 0
+    /// Retorna o nome do mês no formato local (ex: "Julho")
+    func monthName(for date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "pt_BR")
+        formatter.dateFormat = "LLLL"
+        return formatter.string(from: date).capitalized
     }
 
-    func firstWeekdayOfMonth(for date: Date) -> Int {
+    /// Retorna true se a data passada está no mesmo mês e ano da referência
+    func isDayInCurrentMonth(_ day: Date, for referenceDate: Date) -> Bool {
+        let dayComponents = calendar.dateComponents([.year, .month], from: day)
+        let referenceComponents = calendar.dateComponents([.year, .month], from: referenceDate)
+        return dayComponents.year == referenceComponents.year &&
+               dayComponents.month == referenceComponents.month
+    }
+
+    /// Retorna um array de 6 semanas completas, cada uma com 7 dias (`[[Date]]`)
+    func completeWeeks(for date: Date) -> [[Date]] {
         let components = calendar.dateComponents([.year, .month], from: date)
-        let firstDay = calendar.date(from: components)!
-        return calendar.component(.weekday, from: firstDay)
-    }
+        guard let firstOfMonth = calendar.date(from: components) else { return [] }
 
-    func daysInPreviousMonth(for date: Date) -> Int {
-        let previousMonth = calendar.date(byAdding: .month, value: -1, to: date)!
-        return daysInMonth(for: previousMonth)
-    }
+        let weekday = calendar.component(.weekday, from: firstOfMonth)
+        let daysBefore = weekday - calendar.firstWeekday
+        let startOffset = daysBefore >= 0 ? daysBefore : 7 + daysBefore
 
-    func completeWeeks(for date: Date) -> [[Int]] {
-        let daysInCurrentMonth = daysInMonth(for: date)
-        let firstWeekday = firstWeekdayOfMonth(for: date)
-        let daysInPrevious = daysInPreviousMonth(for: date)
+        guard let startDate = calendar.date(byAdding: .day, value: -startOffset, to: firstOfMonth) else { return [] }
 
-        var weeks: [[Int]] = []
-        var currentWeek: [Int] = []
+        var weeks: [[Date]] = []
+        var currentWeek: [Date] = []
 
-        for i in stride(from: daysInPrevious - firstWeekday + 1, through: daysInPrevious, by: 1) {
-            currentWeek.append(i)
-        }
-
-        for day in 1...daysInCurrentMonth {
-            currentWeek.append(day)
-            if currentWeek.count == 7 {
-                weeks.append(currentWeek)
-                currentWeek = []
+        for i in 0..<42 { // 6 semanas completas (6x7)
+            if let day = calendar.date(byAdding: .day, value: i, to: startDate) {
+                currentWeek.append(day)
+                if currentWeek.count == 7 {
+                    weeks.append(currentWeek)
+                    currentWeek = []
+                }
             }
         }
-
-        var nextMonthDay = 1
-        while currentWeek.count < 7 {
-            currentWeek.append(nextMonthDay)
-            nextMonthDay += 1
-        }
-        weeks.append(currentWeek)
 
         return weeks
     }
 
+    /// Retorna os 7 dias da semana atual da data informada
     func currentWeek(for date: Date) -> [Date] {
-        let weekInterval = calendar.dateInterval(of: .weekOfYear, for: date)!
+        guard let weekInterval = calendar.dateInterval(of: .weekOfYear, for: date) else { return [] }
         return (0..<7).compactMap { calendar.date(byAdding: .day, value: $0, to: weekInterval.start) }
-    }
-
-    func dateFromDay(_ day: Int, in date: Date) -> Date {
-        let components = calendar.dateComponents([.year, .month], from: date)
-        return calendar.date(bySetting: .day, value: day, of: calendar.date(from: components)!)!
-    }
-}
-
-extension CalendarService {
-    func isDayInCurrentMonth(_ day: Int, for date: Date) -> Bool {
-        let daysInCurrentMonth = daysInMonth(for: date)
-//        let firstWeekday = firstWeekdayOfMonth(for: date)
-        return day > 0 && day <= daysInCurrentMonth
-    }
-    
-    func monthName(for date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "pt_BR")
-        dateFormatter.dateFormat = "LLLL"
-        return dateFormatter.string(from: date).capitalized
     }
 }

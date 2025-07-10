@@ -9,45 +9,36 @@ import SwiftUI
 
 struct MonthView: View {
     @Binding var selectedDate: Date
-    private let calendarService = CalendarService.shared
+    private let calendarService: CalendarService
+
+    init(selectedDate: Binding<Date>, calendarService: CalendarService = .shared) {
+        self._selectedDate = selectedDate
+        self.calendarService = calendarService
+    }
 
     var body: some View {
         let weeks = calendarService.completeWeeks(for: selectedDate)
-        let selectedDayOfMonth = Calendar.current.component(.day, from: selectedDate)
-        VStack {
-            CalendarHeader(selectedDate: $selectedDate)
+        
+        VStack(spacing: 12) {
+            CalendarHeader(selectedDate: $selectedDate, calendarService: calendarService)
+
             ForEach(weeks, id: \.self) { week in
-                HStack {
-                    ForEach(week, id: \.self) { day in
-                        let isCurrentMonth = calendarService.isDayInCurrentMonth(day, for: selectedDate)
-                        if isCurrentMonth {
-                            
-                        }
-                        if day == selectedDayOfMonth && isCurrentMonth {
-                            Text("\(day)")
-                                .frame(maxWidth: .infinity)
-                                .foregroundStyle(Color.neutrals01)
-                                .padding(8)
-                                .background(Color.primary04)
-                                .clipShape(Circle())
-                                .onTapGesture {
-                                    selectedDate = calendarService.dateFromDay(day, in: selectedDate)
-                                }
-                        } else {
-                            Text("\(day)")
-                                .frame(maxWidth: .infinity)
-                                .foregroundColor(.primary)
-                                .padding(8)
-                                .onTapGesture {
-                                    if isCurrentMonth {
-                                        selectedDate = calendarService.dateFromDay(day, in: selectedDate)
-                                    }
-                                }
+                HStack(spacing: 0) {
+                    ForEach(week, id: \.self) { date in
+                        let isCurrentMonth = calendarService.isDayInCurrentMonth(date, for: selectedDate)
+                        let isSelected = Calendar.current.isDate(date, inSameDayAs: selectedDate)
+
+                        DayView(
+                            date: date,
+                            isSelected: isSelected,
+                            isInCurrentMonth: isCurrentMonth
+                        ) {
+                            selectedDate = date
                         }
                     }
                 }
             }
         }
-        .padding()
+        .padding([.horizontal, .bottom])
     }
 }

@@ -8,48 +8,31 @@
 import SwiftUI
 
 struct CalendarHeader: View {
-    private let calendarService = CalendarService.shared
-    
+    private let weekDays = ["DOM", "SEG", "TER", "QUA", "QUI", "SEX", "SAB"]
+    private let calendarService: CalendarService
     @Binding var selectedDate: Date
-    
+
+    init(selectedDate: Binding<Date>, calendarService: CalendarService = .shared) {
+        self._selectedDate = selectedDate
+        self.calendarService = calendarService
+    }
+
     var body: some View {
-        VStack {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(calendarService.monthName(for: selectedDate))
+                .font(Font.custom("BricolageGrotesque-ExtraBold", size: 24))
+                .foregroundStyle(Color.primary06)
+
             HStack {
-                Text(calendarService.monthName(for: selectedDate))
-                    .font(Font.custom("BricolageGrotesque-ExtraBold", size: 24))
-                    .foregroundStyle(Color.primary06)
-                Spacer()
-            }
-            HStack {
-                Text("SAB")
-                    .font(Font.custom("BricolageGrotesque-Regular", size: 11))
-                    .foregroundStyle(Color.neutrals03)
-                    .padding(8)
-                Text("DOM")
-                    .font(Font.custom("BricolageGrotesque-Regular", size: 11))
-                    .foregroundStyle(Color.neutrals03)
-                    .padding(8)
-                Text("SEG")
-                    .font(Font.custom("BricolageGrotesque-Regular", size: 11))
-                    .foregroundStyle(Color.neutrals03)
-                    .padding(8)
-                Text("TER")
-                    .font(Font.custom("BricolageGrotesque-Regular", size: 11))
-                    .foregroundStyle(Color.neutrals03)
-                    .padding(8)
-                Text("QUA")
-                    .font(Font.custom("BricolageGrotesque-Regular", size: 11))
-                    .foregroundStyle(Color.neutrals03)
-                    .padding(8)
-                Text("QUI")
-                    .font(Font.custom("BricolageGrotesque-Regular", size: 11))
-                    .foregroundStyle(Color.neutrals03)
-                    .padding(8)
-                Text("SEX")
-                    .font(Font.custom("BricolageGrotesque-Regular", size: 11))
-                    .foregroundStyle(Color.neutrals03)
-                    .padding(8)
+                ForEach(weekDays, id: \.self) { day in
+                    Text(day)
+                        .font(Font.custom("BricolageGrotesque-Regular", size: 11))
+                        .foregroundStyle(Color.neutrals03)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 8)
+                }
             }
         }
     }
 }
+
