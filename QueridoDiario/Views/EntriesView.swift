@@ -11,7 +11,6 @@ import SwiftUI
 struct EntriesView: View {
     @State private var searchText: String = ""
     @State private var selectedDate: Date = Date()
-    @State private var selectedMode: String = "Mês"
     @Binding var isAddPagePresented: Bool
     @Binding var isViewPagePresented: Bool
     @StateObject var viewModel = PageViewModel.shared
@@ -27,23 +26,11 @@ struct EntriesView: View {
     var body: some View {
         VStack {
             // Text Filter
-            TextField("Buscar por título ou conteúdo", text: $searchText)
+            TextField("Pesquise os diários salvos", text: $searchText)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
-
-            // Date Filter
-            Picker("Modo de Visualização", selection: $selectedMode) {
-                Text("Mês").tag("Mês")
-                Text("Semana").tag("Semana")
-            }
-            .pickerStyle(SegmentedPickerStyle())
-            .padding()
-
-            if selectedMode == "Mês" {
-                MonthView(selectedDate: $selectedDate)
-            } else {
-                WeekView(selectedDate: $selectedDate)
-            }
+            
+            CalendarFilter(selectedDate: $selectedDate)
 
             // DiaryPages List
             if filteredPages.isEmpty {
@@ -64,7 +51,7 @@ struct EntriesView: View {
                     .font(Font.custom("BricolageGrotesque-ExtraBold", size: 24))
                     .foregroundStyle(Color.primary06)
                 ScrollView {
-                    ForEach(filteredPages) { page in
+                    ForEach(pages) { page in
                         Card(entry: page, formatedDate: DateFormatterHelper.shared.format(date: page.createdAt))
                             .onTapGesture {
                                 viewModel.setValues(page: page)

@@ -18,7 +18,7 @@ struct DayView: View {
 
         Text("\(day)")
             .frame(maxWidth: .infinity)
-            .foregroundStyle(isSelected ? Color.neutrals01 : .primary)
+            .foregroundStyle(foregroundColor)
             .padding(8)
             .background(isSelected ? Color.primary04 : Color.clear)
             .clipShape(Circle())
@@ -31,5 +31,16 @@ struct DayView: View {
             .accessibilityLabel("Dia \(day)")
             .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
+
+    private var foregroundColor: Color {
+        if !isInCurrentMonth {
+            return Color.neutrals02
+        } else if isSelected {
+            return Color.neutrals01
+        } else {
+            return .primary
+        }
+    }
 }
+
 

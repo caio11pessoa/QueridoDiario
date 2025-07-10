@@ -61,7 +61,7 @@ struct PageDetails: View {
                         }
                 }
             }
-            // Scrollable content area
+            
             ScrollView {
                 VStack(alignment: .leading) {
                     HStack {
@@ -107,7 +107,6 @@ struct PageDetails: View {
                     }
                 }
             }
-            // Toolbar (if needed)
             if isEditModeOn {
                 ToolBar()
             }

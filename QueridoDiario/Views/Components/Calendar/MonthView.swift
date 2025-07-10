@@ -19,26 +19,21 @@ struct MonthView: View {
     var body: some View {
         let weeks = calendarService.completeWeeks(for: selectedDate)
         
-        VStack(spacing: 12) {
-            CalendarHeader(selectedDate: $selectedDate, calendarService: calendarService)
+        ForEach(weeks, id: \.self) { week in
+            HStack(spacing: 0) {
+                ForEach(week, id: \.self) { date in
+                    let isCurrentMonth = calendarService.isDayInCurrentMonth(date, for: selectedDate)
+                    let isSelected = Calendar.current.isDate(date, inSameDayAs: selectedDate)
 
-            ForEach(weeks, id: \.self) { week in
-                HStack(spacing: 0) {
-                    ForEach(week, id: \.self) { date in
-                        let isCurrentMonth = calendarService.isDayInCurrentMonth(date, for: selectedDate)
-                        let isSelected = Calendar.current.isDate(date, inSameDayAs: selectedDate)
-
-                        DayView(
-                            date: date,
-                            isSelected: isSelected,
-                            isInCurrentMonth: isCurrentMonth
-                        ) {
-                            selectedDate = date
-                        }
+                    DayView(
+                        date: date,
+                        isSelected: isSelected,
+                        isInCurrentMonth: isCurrentMonth
+                    ) {
+                        selectedDate = date
                     }
                 }
             }
         }
-        .padding([.horizontal, .bottom])
     }
 }
